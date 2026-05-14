@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plano Sênior — Blue Med Saúde</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#152361;
+    --accent:#0099D8;
+    --deep:#1E3A8A;
+    --yellow:#F5C518;
+    --yellow-dark:#D4A60E;
+    --gold:#C9A24B;
+    --gold-light:#E8C063;
+    --gold-deep:#A37714;
+    --gold-grad:linear-gradient(135deg,#E8C063 0%,#A37714 100%);
+    --pale-blue:#D6E8F5;
+    --cyan-soft:#E8F4F9;
+    --text:#0F172A;
+    --text-2:#2D4A7A;
+    --text-3:#3A5A8A;
+    --muted:#5c5c5c;
+    --offwhite:#F4F7FD;
+    --bg-soft:#F4F7FD;
+    --bg-cyan-band:#E8F4F9;
+    --navy-deep:#0a1840;
+    --r-pill:999px;
+    --r-card:14px;
+    --r-input:8px;
+    --font:'Montserrat',sans-serif;
+
+    /* ============================================================
+       SPACING SCALE — 4px base. Use these tokens, not magic numbers.
+       ============================================================ */
+    --s-1: 4px;     /* hairline */
+    --s-2: 8px;     /* dense */
+    --s-3: 12px;    /* tight inline */
+    --s-4: 16px;    /* inline default */
+    --s-5: 24px;    /* loose inline / card inset */
+    --s-6: 32px;    /* block-to-block */
+    --s-7: 48px;    /* title-to-content */
+    --s-8: 64px;    /* compact section padding */
+    --s-9: 96px;    /* default section padding */
+    --s-10: 128px;  /* major section break */
+
+    /* SEMANTIC RHYTHM — use these, not raw scale values */
+    --section-y: var(--s-9);          /* top/bottom of full sections */
+    --section-y-sm: var(--s-8);       /* tight sections */
+    --page-gutter: var(--s-6);        /* horizontal page padding */
+    --title-gap: var(--s-7);          /* heading -> content block */
+    --heading-sub-gap: var(--s-4);    /* heading -> subhead/lead */
+    --block-gap: var(--s-6);          /* block -> block */
+    --inline-gap: var(--s-4);         /* inline siblings */
+    --tight-gap: var(--s-3);          /* compact inline */
+    --section-gap: var(--section-y);  /* legacy alias */
+    --halo-yellow:0 0 16px 3px rgba(245,197,24,.28), 0 0 32px 6px rgba(245,197,24,.14);
+    --halo-gold:0 0 16px 3px rgba(201,162,75,.28), 0 0 32px 6px rgba(201,162,75,.14);
+    --halo-navy:0 0 16px 3px rgba(21,35,97,.22), 0 0 32px 6px rgba(21,35,97,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--text);background:#fff;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter)}
+
+  /* ============ HEADER ============ */
+  header{padding:var(--s-5) 0 0}
+  .head-inner{display:flex;align-items:center;gap:var(--s-5);padding:0 var(--page-gutter);max-width:1200px;margin:0 auto}
+  .logo{display:flex;align-items:center}
+  .logo img{height:56px;width:auto;display:block}
+  .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--primary);border-left:2px solid var(--accent);padding-left:14px;line-height:1.3}
+
+  /* ============ HERO ============ */
+  .hero{padding:var(--s-7) 0 var(--section-y);position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-7);align-items:center;padding:0 var(--page-gutter);max-width:1200px;margin:0 auto}
+  .hero h1{font-family:var(--font);font-size:48px;font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--primary);margin-bottom:var(--s-5)}
+  .hero .lead{font-size:15px;color:var(--text-2);line-height:1.6;max-width:480px}
+  .hero-img{position:relative}
+  .hero-img .photo{aspect-ratio:4/3;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(15,23,42,.12),0 4px 12px rgba(15,23,42,.06)}
+  .hero-img .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-img .corner{display:none}
+  .hero-loc{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;z-index:2;border:1px solid rgba(255,255,255,.10)}
+  .hero-loc svg{width:16px;height:16px;stroke:var(--primary);stroke-width:2;fill:none;flex-shrink:0}
+  .hero-loc span{font-size:13px;font-weight:700;color:var(--primary);letter-spacing:-.1px}
+
+  /* ============ FORM BAR ============ */
+  .form-bar{margin-top:var(--section-y-sm);padding:var(--s-7) var(--page-gutter) var(--block-gap);background:var(--offwhite)}
+  .form-bar-inner{max-width:1200px;margin:0 auto}
+  .form-card{background:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(15,23,42,.08),0 2px 6px rgba(15,23,42,.04);padding:28px 36px;display:grid;grid-template-columns:1.1fr 3fr auto;gap:36px;align-items:center}
+  .form-card .pitch{font-size:14px;color:var(--text);line-height:1.55;display:flex;align-items:center;gap:18px}
+  .form-card .pitch-text{flex:1}
+  .form-card .pitch strong{color:var(--accent);font-weight:800}
+  .form-card .pitch .arrow{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-size:32px;font-weight:400;line-height:1;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px}
+  .form-fields{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:20px;align-items:end}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:0}
+  .field input,.field select{width:100%;border:1.5px solid #e0e7ed;border-radius:10px;padding:13px 16px;font-family:var(--font);font-size:14px;color:var(--text);background:#fff;outline:none;transition:border-color .2s ease,box-shadow .2s ease;appearance:none;-webkit-appearance:none;min-width:0}
+  .field input::placeholder{color:#a0a8b8;font-weight:400}
+  .field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,153,216,.12)}
+  .field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23152361' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer}
+  .form-card .btn-yellow{align-self:end}
+  .form-disclaimer{text-align:center;font-size:12px;color:var(--text-3);margin-top:var(--inline-gap);letter-spacing:.1px}
+  .btn-yellow{background:var(--gold-grad);color:#fff;font-family:var(--font);font-weight:800;font-size:14px;letter-spacing:-.1px;padding:14px 28px;border:none;border-radius:var(--r-pill);cursor:pointer;white-space:nowrap;box-shadow:var(--halo-gold);transition:transform .25s ease,box-shadow .25s ease;text-shadow:0 1px 2px rgba(91,67,12,.25)}
+  .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 0 24px 5px rgba(245,197,24,.40), 0 0 48px 10px rgba(245,197,24,.18)}
+
+  /* ============================================================
+     PLAN PICKER — 3 cards lado-a-lado, abre modal de cotação
+     ============================================================ */
+  .plan-picker{padding:var(--section-y) 0;background:var(--offwhite);position:relative}
+  .plan-picker-inner{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter)}
+  .plan-picker-head{text-align:center;margin-bottom:var(--title-gap)}
+  .plan-picker-head .eyebrow-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.6px;color:var(--accent);text-transform:uppercase;margin-bottom:var(--tight-gap)}
+  .plan-picker-head h2{font-size:36px;font-weight:800;color:var(--primary);letter-spacing:-.8px;line-height:1.15;margin-bottom:var(--heading-sub-gap)}
+  .plan-picker-head p{font-size:15px;color:var(--text-3);line-height:1.6;max-width:560px;margin:0 auto}
+  .plan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--inline-gap)}
+  .plan-card{
+    position:relative;
+    background:#fff;
+    border:1.5px solid transparent;
+    border-radius:18px;
+    padding:36px 32px 32px;
+    text-align:left;
+    cursor:pointer;
+    font-family:var(--font);
+    color:var(--text);
+    box-shadow:0 2px 12px rgba(15,23,42,.06),0 0 0 1px rgba(21,35,97,.06);
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .45s ease,color .45s ease;
+    display:flex;flex-direction:column;gap:var(--inline-gap);
+    overflow:hidden;
+  }
+  .plan-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+    box-shadow:0 18px 40px rgba(21,35,97,.12),0 0 0 1px rgba(0,153,216,.18);
+  }
+  /* "Featured" / active state — usado no card central + ao clicar */
+  .plan-card.featured,
+  .plan-card[aria-pressed="true"]{
+    background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);
+    color:#fff;
+    border-color:transparent;
+    box-shadow:0 24px 50px rgba(10,24,64,.32);
+  }
+  .plan-card .pc-icon{
+    width:52px;height:52px;border-radius:14px;
+    background:var(--cyan-soft);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .plan-card .pc-icon svg{stroke:var(--accent);stroke-width:1.8;fill:none;width:26px;height:26px}
+  .plan-card.featured .pc-icon{background:rgba(255,255,255,.08)}
+  .plan-card.featured .pc-icon svg{stroke:#fff}
+  .plan-card .pc-tag{
+    display:inline-block;align-self:flex-start;
+    font-size:11px;font-weight:800;letter-spacing:1.4px;
+    color:var(--accent);text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;
+    background:var(--cyan-soft);
+  }
+  .plan-card.featured .pc-tag{color:#fff;background:rgba(255,255,255,.12)}
+  .plan-card .pc-title{font-size:24px;font-weight:800;color:var(--primary);letter-spacing:-.4px;line-height:1.15}
+  .plan-card.featured .pc-title{color:#fff}
+  .plan-card .pc-sub{font-size:14px;color:var(--text-3);line-height:1.5;margin-top:-4px}
+  .plan-card.featured .pc-sub{color:rgba(255,255,255,.72)}
+  .plan-card .pc-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:var(--tight-gap)}
+  .plan-card .pc-features li{font-size:13.5px;color:var(--text-2);line-height:1.5;padding-left:24px;position:relative}
+  .plan-card .pc-features li::before{
+    content:"";position:absolute;left:0;top:5px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--cyan-soft);
+    border:2px solid var(--accent);
+  }
+  .plan-card .pc-features li::after{
+    content:"";position:absolute;left:4px;top:9px;
+    width:6px;height:3px;
+    border-left:2px solid var(--accent);
+    border-bottom:2px solid var(--accent);
+    transform:rotate(-45deg);
+  }
+  .plan-card.featured .pc-features li{color:rgba(255,255,255,.85)}
+  .plan-card.featured .pc-features li::before{background:rgba(255,255,255,.08);border-color:var(--gold-light)}
+  .plan-card.featured .pc-features li::after{border-color:var(--gold-light)}
+  .plan-card .pc-cta{
+    margin-top:auto;padding-top:var(--inline-gap);
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:800;letter-spacing:-.1px;
+    color:var(--primary);
+    border-top:1px solid #eef1f6;
+    padding-top:18px;
+  }
+  .plan-card .pc-cta .arrow{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold-grad);align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900;transition:transform .25s ease;box-shadow:0 2px 8px rgba(163,119,20,.3)}
+  .plan-card:hover .pc-cta .arrow{transform:translateX(3px)}
+  .plan-card.featured .pc-cta{color:#fff;border-top-color:rgba(255,255,255,.12)}
+
+  /* ============================================================
+     LEAD-CAPTURE MODAL
+     ============================================================ */
+  .plan-modal{
+    position:fixed;inset:0;z-index:1000;
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+    opacity:0;visibility:hidden;
+    transition:opacity .25s ease,visibility .25s ease;
+  }
+  .plan-modal[aria-hidden="false"]{opacity:1;visibility:visible}
+  .plan-modal-backdrop{
+    position:absolute;inset:0;
+    background:rgba(10,15,30,.62);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .plan-modal-card{
+    position:relative;
+    width:100%;max-width:520px;
+    max-height:90vh;
+    background:#fff;border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(10,15,30,.45);
+    transform:scale(.95);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+    font-family:var(--font);
+  }
+  .plan-modal-card-inner{
+    max-height:90vh;
+    overflow-y:auto;
+    padding:40px 40px 32px;
+    scrollbar-gutter:stable;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(21,35,97,.25) transparent;
+  }
+  .plan-modal-card-inner::-webkit-scrollbar{width:8px}
+  .plan-modal-card-inner::-webkit-scrollbar-track{background:transparent}
+  .plan-modal-card-inner::-webkit-scrollbar-thumb{background:rgba(21,35,97,.25);border-radius:999px}
+  .plan-modal[aria-hidden="false"] .plan-modal-card{transform:scale(1)}
+  .plan-modal-close{
+    position:absolute;top:16px;right:16px;
+    width:36px;height:36px;
+    background:#f3f5fa;border:none;border-radius:50%;
+    font-size:20px;font-weight:300;line-height:1;
+    color:var(--text-2);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s ease,color .2s ease,transform .2s ease;
+  }
+  .plan-modal-close:hover{background:var(--primary);color:#fff;transform:rotate(90deg)}
+  .plan-modal-chip{
+    display:inline-block;
+    font-size:11px;font-weight:800;letter-spacing:1.6px;
+    color:#fff;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+    background:var(--gold-grad);
+    box-shadow:0 4px 12px rgba(163,119,20,.25);
+    margin-bottom:var(--inline-gap);
+  }
+  .plan-modal-card h3{
+    font-size:24px;font-weight:800;color:var(--primary);
+    letter-spacing:-.4px;line-height:1.2;
+    margin-bottom:var(--tight-gap);
+  }
+  .plan-modal-card .modal-lead{
+    font-size:14px;color:var(--text-3);line-height:1.55;
+    margin-bottom:var(--block-gap);
+  }
+  .plan-modal-form{display:flex;flex-direction:column;gap:var(--inline-gap)}
+  .plan-modal-form .field label{display:block;font-size:13px;font-weight:700;color:var(--primary);margin-bottom:6px;letter-spacing:-.05px}
+  .plan-modal-form .field input,
+  .plan-modal-form .field select{
+    width:100%;border:1.5px solid #e0e7ed;border-radius:12px;
+    padding:13px 16px;font-family:var(--font);font-size:14px;
+    color:var(--text);background:#fff;outline:none;
+    transition:border-color .2s ease,box-shadow .2s ease;
+    appearance:none;-webkit-appearance:none;
+  }
+  .plan-modal-form .field input::placeholder{color:#a0a8b8}
+  .plan-modal-form .field input:focus,
+  .plan-modal-form .field select:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(0,153,216,.12);
+  }
+  .plan-modal-form .field select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23152361' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 16px center;
+    padding-right:40px;cursor:pointer;
+  }
+  .plan-modal-form .field.invalid input,
+  .plan-modal-form .field.invalid select{border-color:#dc2626;box-shadow:0 0 0 3px rgba(220,38,38,.10)}
+  .plan-modal-form .field-error{font-size:12px;color:#dc2626;margin-top:5px;display:none}
+  .plan-modal-form .field.invalid .field-error{display:block}
+
+  .field-radio .field-label{display:block;font-size:13px;font-weight:700;color:var(--primary);margin-bottom:10px;letter-spacing:-.05px}
+  .radio-group{display:flex;gap:10px}
+  .radio-pill{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    border:1.5px solid #e0e7ed;border-radius:12px;
+    padding:12px 16px;
+    font-family:var(--font);font-size:14px;font-weight:600;color:var(--text-2);
+    cursor:pointer;
+    transition:border-color .2s ease,background .2s ease,color .2s ease;
+  }
+  .radio-pill input{appearance:none;width:16px;height:16px;border:1.5px solid #c8d1de;border-radius:50%;margin:0;position:relative;flex-shrink:0;cursor:pointer}
+  .radio-pill input:checked{border-color:var(--accent)}
+  .radio-pill input:checked::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--accent)}
+  .radio-pill:has(input:checked){border-color:var(--accent);background:var(--cyan-soft);color:var(--primary)}
+  .field-radio.invalid .radio-group{border:1.5px dashed #dc2626;border-radius:14px;padding:6px}
+
+  .lgpd-check{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:13px;color:var(--text-2);line-height:1.5;
+    cursor:pointer;margin-top:var(--tight-gap);
+  }
+  .lgpd-check input{appearance:none;width:18px;height:18px;border:1.5px solid #c8d1de;border-radius:6px;flex-shrink:0;margin-top:1px;position:relative;cursor:pointer;transition:all .2s ease}
+  .lgpd-check input:checked{background:var(--primary);border-color:var(--primary)}
+  .lgpd-check input:checked::after{content:"";position:absolute;left:4px;top:1px;width:6px;height:11px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+  .lgpd-check.invalid{color:#dc2626}
+  .lgpd-check.invalid input{border-color:#dc2626}
+
+  .modal-submit{
+    margin-top:var(--inline-gap);
+    padding:16px 28px;font-size:14px;
+    width:100%;
+  }
+  .modal-lock{
+    text-align:center;font-size:11px;color:var(--text-3);
+    margin-top:var(--tight-gap);letter-spacing:.2px;
+  }
+
+  /* Success state */
+  .plan-modal-success{
+    display:none;text-align:center;padding:24px 8px;
+  }
+  .plan-modal[data-state="success"] .plan-modal-form,
+  .plan-modal[data-state="success"] .plan-modal-chip,
+  .plan-modal[data-state="success"] .modal-lead,
+  .plan-modal[data-state="success"] .plan-modal-card h3,
+  .plan-modal[data-state="success"] .modal-lock{display:none}
+  .plan-modal[data-state="success"] .plan-modal-success{display:block}
+  .plan-modal-success .check-ring{
+    width:80px;height:80px;margin:0 auto 24px;
+    border-radius:50%;background:#dcfce7;
+    display:flex;align-items:center;justify-content:center;
+    animation:checkPop .5s cubic-bezier(.4,0,.2,1);
+  }
+  .plan-modal-success .check-ring svg{width:42px;height:42px;stroke:#16a34a;stroke-width:3;fill:none}
+  .plan-modal-success h3{font-size:22px;font-weight:800;color:var(--primary);margin-bottom:10px;display:block!important}
+  .plan-modal-success p{font-size:14px;color:var(--text-3);line-height:1.55;max-width:340px;margin:0 auto}
+  @keyframes checkPop{
+    0%{transform:scale(0);opacity:0}
+    60%{transform:scale(1.15);opacity:1}
+    100%{transform:scale(1);opacity:1}
+  }
+
+  /* Mobile — fullscreen modal */
+  @media (max-width:640px){
+    .plan-cards{grid-template-columns:1fr}
+    .plan-picker-head h2{font-size:26px}
+    .plan-modal{padding:0;align-items:stretch}
+    .plan-modal-card{max-width:none;max-height:none;height:100vh;border-radius:0}
+    .plan-modal-card-inner{max-height:100vh;padding:24px 22px}
+    .plan-modal-close{top:14px;right:14px}
+  }
+
+  /* ============ RECURRING UI VOCABULARY (pill outline buttons / info box / dashed callout / inline title) ============ */
+  /* Pill outline button — navy 1.5px border, icon + label, hover fills navy */
+  .btn-pill-outline{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 24px;
+    border:1.5px solid var(--primary);
+    border-radius:var(--r-pill);
+    background:#fff;
+    color:var(--primary);
+    font-family:var(--font);font-weight:700;font-size:14px;letter-spacing:-.1px;
+    cursor:pointer;white-space:nowrap;
+    transition:background-color .25s ease,color .25s ease,transform .25s ease,box-shadow .25s ease;
+    text-decoration:none;
+  }
+  .btn-pill-outline svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;transition:stroke .25s ease}
+  .btn-pill-outline:hover{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);border-color:transparent;color:#fff;transform:translateY(-1px);box-shadow:0 8px 24px rgba(10,24,64,.28)}
+
+  .pill-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--tight-gap);margin-top:var(--s-6);max-width:520px}
+  .pill-row .btn-pill-outline{justify-content:center;width:100%}
+  @media (max-width:560px){.pill-row{grid-template-columns:1fr}}
+
+  /* Highlighted info box — pale blue background, bold-navy keywords */
+  .info-box{
+    background:var(--cyan-soft);
+    border-radius:8px;
+    padding:20px 26px;
+    font-size:15px;color:var(--text-2);line-height:1.65;
+    letter-spacing:-.1px;
+  }
+  .info-box strong{color:var(--primary);font-weight:700}
+
+  /* Dashed callout — secondary/auxiliary message */
+  .callout-dashed{
+    border:1.5px dashed #c7d4e6;
+    border-radius:8px;
+    padding:18px 24px;
+    font-size:14px;color:var(--text-3);line-height:1.6;
+    background:#fbfcfe;
+    text-align:center;
+  }
+
+  /* Title + inline subtitle — bold navy heading paired with grey one-line description */
+  .title-inline{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;justify-content:center;text-align:left;padding:0 32px}
+  .title-inline h2{font-size:34px;font-weight:800;color:var(--primary);letter-spacing:-.8px;line-height:1.1;margin:0}
+  .title-inline .sub{font-size:13px;color:var(--text-3);font-weight:500;letter-spacing:.1px;max-width:380px;line-height:1.5}
+
+  /* ============ STATS BAND ============ */
+  .stats{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);padding:0;overflow:hidden;position:relative;height:96px}
+  .stats::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 15% 0%,rgba(255,255,255,.08),transparent 55%);pointer-events:none;z-index:0}
+  .stats > *{position:relative;z-index:1}
+  .stats-pair{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:48px;transform:translateY(100%);opacity:0;transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .7s cubic-bezier(.4,0,.2,1)}
+  .stats-pair.active{transform:translateY(0);opacity:1}
+  .stats-pair.exit{transform:translateY(-100%);opacity:0}
+  .stat{text-align:center;padding:24px 40px}
+  .stat .num{font-size:34px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1}
+  .stat .num .plus{color:var(--accent)}
+  .stat .lbl{font-size:13px;font-weight:600;color:rgba(255,255,255,.6);margin-top:8px;letter-spacing:.3px}
+  .stat-div{background:rgba(255,255,255,.12);width:1px;height:40px;flex-shrink:0}
+
+  /* ============ ABOUT (description + feature cards) ============ */
+  .about{background:#F4F7FD;padding:var(--section-y) 0;overflow:hidden;position:relative}
+  .about .intro{max-width:820px;margin:0 auto var(--title-gap);padding:0 var(--page-gutter)}
+  .about .intro p{font-size:24px;font-weight:500;color:var(--text);line-height:1.45;letter-spacing:-.3px;text-align:center}
+  .about .intro p strong{color:var(--primary);font-weight:700}
+  .feat-grid{max-width:1200px;margin:0 auto;padding:0 32px;position:relative}
+  .feat-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px) / 3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scroll-padding-left:12px;padding:12px;margin:-12px;scrollbar-width:none;-ms-overflow-style:none}
+  .feat-track::-webkit-scrollbar{display:none}
+  .feat-track.dragging{scroll-behavior:auto}
+  .feat{scroll-snap-align:start;border:none;border-radius:16px;padding:36px 32px 40px;background:#fff;box-shadow:0 2px 12px rgba(15,23,42,.06),0 0 0 1px rgba(21,35,97,.06);transition:transform .35s ease,box-shadow .35s ease;min-height:200px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .feat::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);border-radius:0 2px 2px 0;opacity:0;transition:opacity .3s ease}
+  .feat:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(21,35,97,.10),0 0 0 1px rgba(0,153,216,.15)}
+  .feat:hover::before{opacity:1}
+  .feat:hover::before{opacity:1}
+  .feat .ico{width:48px;height:48px;border-radius:12px;background:var(--offwhite);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .feat .ico svg{stroke:var(--accent);stroke-width:1.8;fill:none}
+  .feat h4{font-size:18px;font-weight:800;color:var(--primary);letter-spacing:-.3px;margin-bottom:10px;text-transform:none}
+  .feat p{font-size:14px;color:var(--text-3);line-height:1.6;flex:1}
+  .dots{display:flex;justify-content:center;gap:var(--s-2);margin-top:var(--block-gap)}
+  .dots .dot{width:7px;height:7px;border-radius:50%;background:#cdd5e0}
+  .dots .dot{cursor:pointer;transition:all .3s ease}
+  .dots .dot.active{background:var(--primary);width:22px;border-radius:999px}
+  .about .cta-wrap{text-align:center;margin-top:var(--title-gap)}
+
+  /* ============ SECTION TITLE (red→navy) ============ */
+  .sec-title{padding:var(--section-y) 0 var(--s-5);text-align:center}
+  .sec-title h2{font-size:34px;font-weight:800;color:var(--primary);letter-spacing:-.8px;margin-bottom:var(--heading-sub-gap);padding:0 var(--page-gutter)}
+  .sec-title .sub{font-size:13px;color:var(--text-3);font-weight:500;padding:0 var(--page-gutter)}
+
+  /* ============ NETWORK ROWS (alternating, framed photo) ============ */
+  .net-row{padding:var(--section-y) 0;position:relative;overflow:hidden;background:#fff}
+  .net-row.reverse{background:var(--offwhite)}
+  .net-row-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8);align-items:center;padding:0 var(--page-gutter);position:relative}
+  .net-row.reverse .net-text{order:2}
+  .net-row.reverse .net-photo{order:1}
+  .net-row h3{font-size:32px;font-weight:800;color:var(--primary);letter-spacing:-.6px;line-height:1.15;margin-bottom:var(--block-gap)}
+  .pill-list{list-style:none;display:flex;flex-direction:column;gap:var(--tight-gap);max-width:480px}
+  .pill-list li{background:#EFEFEF;border-radius:6px;padding:var(--inline-gap) var(--s-5);font-size:16px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:var(--tight-gap);letter-spacing:-.1px}
+  .pill-list li::before{content:"•";color:var(--primary);font-size:20px;font-weight:900;line-height:1;flex-shrink:0;margin-top:-1px}
+
+  /* photo — clean rectangle, no brackets on it */
+  .net-photo{position:relative;width:100%;max-width:560px;z-index:2}
+  .net-row:not(.reverse) .net-photo{margin-left:auto}
+  .net-photo .photo{aspect-ratio:1/.85;background:linear-gradient(135deg,#cdd6e8 0%,#a8b8d4 50%,#7e92b7 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;letter-spacing:.5px;text-align:center;padding:24px;box-shadow:0 18px 50px rgba(15,23,42,.10);overflow:hidden;position:relative}
+  .net-photo .photo::before{content:attr(data-label);opacity:.9}
+  .net-photo .photo:has(img)::before{display:none}
+  .net-photo .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .bracket{display:none}
+
+  /* ============================================================
+     PAGE BRACKETS — navy C-shape sitting flush with the page edge.
+     The vertical line hugs the edge; the open side faces the
+     content. (Inspired by the Trasmontano landing.)
+     Parent must be position:relative + overflow:hidden so the
+     horizontal arms don't cause page scroll.
+     ============================================================ */
+  .page-bracket{
+    position:absolute;
+    border:4px solid var(--primary);
+    pointer-events:none;z-index:1;
+    box-sizing:border-box;
+  }
+  /* Left bracket: [ — opens right.  Top/Bottom/Left visible, no right border */
+  .page-bracket.left{  left:0;  border-right:none }
+  /* Right bracket: ] — opens left. Top/Bottom/Right visible, no left border */
+  .page-bracket.right{ right:0; border-left:none }
+  /* Size — arms reach into the content area */
+  .page-bracket.tall   { width:90px; height:580px }
+  .page-bracket.medium { width:80px; height:420px }
+  .page-bracket.short  { width:70px; height:280px }
+  /* Vertical placement */
+  .page-bracket.center { top:50%; transform:translateY(-50%) }
+  .page-bracket.top    { top:-32px }
+  .page-bracket.bottom { bottom:-32px }
+  /* Color variant for the mint Cellula Mater section */
+  .page-bracket.mint{ border-color:var(--lab-mint-dark, #3A8B7E) }
+
+  /* Legacy aliases — used by the 3 network rows */
+  .frame-left,.frame-right{position:absolute;top:50%;transform:translateY(-50%);border:4px solid var(--primary);pointer-events:none;z-index:1;box-sizing:border-box;width:90px;height:520px}
+  .frame-left{left:0;border-right:none}
+  .frame-right{right:0;border-left:none}
+
+  /* ============ CITY EXPLORER ============ */
+  .city-explorer{padding:var(--section-y) 0;background:var(--offwhite);position:relative}
+  .city-inner{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter)}
+  .city-head{text-align:center;margin-bottom:var(--title-gap)}
+  .city-head .eyebrow-tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:0;color:var(--accent);margin-bottom:var(--tight-gap)}
+  .city-head h2{font-size:36px;font-weight:800;color:var(--primary);letter-spacing:-.8px;line-height:1.15;margin-bottom:var(--heading-sub-gap)}
+  .city-head p{font-size:15px;color:var(--text-3);line-height:1.6;max-width:560px;margin:0 auto}
+  .city-tabs{display:flex;flex-wrap:wrap;gap:var(--tight-gap);justify-content:center;margin-bottom:var(--block-gap)}
+  .city-tab{padding:11px 22px;border:1.5px solid #d8e0ea;border-radius:999px;background:#fff;font-family:var(--font);font-weight:600;font-size:14px;color:var(--text-2);cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);white-space:nowrap}
+  .city-tab:hover{border-color:var(--primary);color:var(--primary)}
+  .city-tab.active{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);border-color:transparent;color:#fff;font-weight:700;box-shadow:0 8px 24px rgba(10,24,64,.28)}
+  .city-panel{background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(15,23,42,.06),0 0 0 1px rgba(21,35,97,.05);padding:var(--s-7) var(--s-7);display:none}
+  .city-panel.active{display:block;animation:cityFadeIn .7s cubic-bezier(.4,0,.2,1) both}
+  @keyframes cityFadeIn{
+    0%{opacity:0;transform:translateY(16px)}
+    100%{opacity:1;transform:translateY(0)}
+  }
+  .city-panel-header{display:flex;align-items:center;gap:var(--tight-gap);margin-bottom:var(--block-gap);padding-bottom:var(--s-5);border-bottom:1px solid #eef1f6}
+  .city-panel-header svg{stroke:var(--accent);stroke-width:2;fill:none;width:24px;height:24px;flex-shrink:0}
+  .city-panel-header h3{font-size:24px;font-weight:800;color:var(--primary);letter-spacing:-.5px}
+  .city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--block-gap)}
+  .city-cat h4{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:-.1px;margin-bottom:var(--inline-gap);padding-bottom:var(--s-2);border-bottom:2px solid var(--accent)}
+  .city-cat ul{list-style:none;display:flex;flex-direction:column;gap:var(--tight-gap)}
+  .city-cat li{font-size:14px;color:var(--text-2);line-height:1.5;padding-left:18px;position:relative}
+  .city-cat li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--gold-grad);flex-shrink:0}
+  .city-empty{font-size:13px;color:#a0a8b8;font-style:italic}
+  .city-cta{text-align:center;margin-top:var(--block-gap);display:flex;flex-direction:column;align-items:center;gap:var(--block-gap)}
+
+  @media (max-width:880px){
+    .city-explorer{padding:60px 0}
+    .city-head h2{font-size:24px}
+    .city-panel{padding:28px 22px;border-radius:14px}
+    .city-grid{grid-template-columns:1fr;gap:24px}
+    .city-tab{font-size:13px;padding:9px 18px}
+  }
+
+  /* ============ LAB SECTION (special — buttons + certifications + hexagons) ============ */
+  /* Cellula Mater teal palette — applied only inside this section */
+  .lab-row{
+    --lab-bg:#ffffff;
+    --lab-mint:#5BB8AB;
+    --lab-mint-dark:#3A8B7E;
+    --lab-mint-soft:#A6D9D0;
+    --lab-ink:#1F3F3A;
+    background:var(--lab-bg);padding:var(--section-y) 0;position:relative;overflow:hidden
+  }
+  .lab-inner{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter);display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8);align-items:center}
+  .lab-brand{display:flex;align-items:center;margin-bottom:var(--s-5)}
+  .lab-brand img{height:96px;width:auto;display:block}
+  .lab-row h3{font-size:34px;font-weight:800;color:var(--lab-mint-dark);letter-spacing:-.7px;line-height:1.15;margin-bottom:var(--block-gap);max-width:520px}
+  .lab-feat-btns{display:flex;flex-direction:column;gap:var(--tight-gap);max-width:440px;margin-bottom:var(--block-gap)}
+  .lab-feat-btn{background:var(--lab-mint);color:#fff;font-family:var(--font);font-weight:700;font-size:18px;padding:18px 32px;border-radius:8px;border:none;text-align:center;letter-spacing:-.2px}
+  .lab-row .cert-label{color:var(--lab-ink)}
+  .lab-row .cert-row{display:block}
+  .lab-row .badges-strip{display:block;max-width:360px;width:100%;height:auto}
+  .lab-row .info-box{background:#F0FAF7;color:var(--lab-ink)}
+  .lab-row .info-box strong{color:var(--lab-mint-dark)}
+  .cert-block{margin-bottom:var(--block-gap)}
+  .cert-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:var(--inline-gap)}
+  .cert-row{display:flex;gap:var(--inline-gap);flex-wrap:wrap;align-items:center}
+  .cert-badge{width:78px;height:78px;background:#fff;border:1px solid #e0e7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:9px;font-weight:700;color:var(--text-3);padding:8px;line-height:1.2}
+  .lab-cta{background:var(--gold-grad);color:#fff;font-family:var(--font);font-weight:800;font-size:14px;padding:18px 36px;border-radius:var(--r-pill);border:none;cursor:pointer;display:block;max-width:440px;width:100%;text-align:center;letter-spacing:.2px;box-shadow:var(--halo-gold);transition:transform .25s ease,box-shadow .25s ease;text-shadow:0 1px 2px rgba(91,67,12,.25)}
+  .lab-cta:hover{transform:translateY(-2px);box-shadow:0 0 24px 5px rgba(245,197,24,.40), 0 0 48px 10px rgba(245,197,24,.18)}
+  .lab-footnote{margin-top:var(--block-gap);font-size:14px;color:var(--text);line-height:1.5;max-width:480px}
+  .lab-footnote strong{color:var(--primary);font-weight:700}
+  .lab-eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.6px;color:var(--lab-mint-dark);text-transform:uppercase;padding:6px 14px;background:rgba(91,184,171,.16);border-radius:999px;margin-bottom:var(--inline-gap)}
+  .lab-lead{font-size:15px;color:var(--lab-ink);line-height:1.6;max-width:480px;margin-bottom:var(--block-gap);margin-top:calc(var(--block-gap) * -1 + var(--s-2))}
+
+  /* ============================================================
+     HONEYCOMB COLLAGE — 4-row honeycomb filling the right column
+     Row stride = H × 3/4 (in pointy-top hex W=170, H=196).
+     Layout (top → bottom):
+       Row 0 (offset)     [o]   [o]         2 decorative outlines
+       Row 1 (non-offset) [o] [o] [o]       3 decorative outlines
+       Row 2 (offset)       [P]   [P]       2 photo hexes
+       Row 3 (non-offset) [P] [P] [P]       3 photo hexes
+     Stage 510 × (196 + 3*147) = 510 × 637
+     Hex h % = 196/637 ≈ 30.77; row stride % = 147/637 ≈ 23.08
+     ============================================================ */
+  .hex-stage{
+    position:relative;width:100%;
+    max-width:620px;aspect-ratio:510/637;
+    margin-left:auto;margin-right:-32px;
+    transform:translateX(8px);
+  }
+  .hex{
+    position:absolute;width:33.33%;aspect-ratio:170/196;
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;text-align:center;
+    cursor:pointer;
+    isolation:isolate;
+  }
+  .hex img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;
+    transition:transform .6s cubic-bezier(.2,.6,.2,1), filter .35s ease;
+    will-change:transform;
+  }
+  .hex::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(15,40,36,.10) 0%,rgba(15,40,36,.55) 100%);
+    pointer-events:none;
+    transition:background .35s ease, opacity .35s ease;
+    z-index:1;
+  }
+  .hex .hex-tag{
+    position:relative;z-index:2;
+    font-size:14px;font-weight:800;letter-spacing:-.1px;color:#fff;
+    line-height:1.15;
+    padding:0 18px;
+    text-shadow:0 2px 6px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.35);
+    max-width:88%;
+    text-wrap:balance;
+    transform:translateY(0);
+    transition:transform .35s cubic-bezier(.2,.6,.2,1);
+  }
+  /* Hover: zoom the photo INSIDE the hex (not the container), brighten,
+     lift the label slightly. No layout shift, no clip glitches. */
+  .hex:hover{z-index:3}
+  .hex:hover img{transform:scale(1.10);filter:saturate(1.08) brightness(1.04)}
+  .hex:hover::after{background:linear-gradient(180deg,rgba(15,40,36,.05) 0%,rgba(15,40,36,.40) 100%)}
+  .hex:hover .hex-tag{transform:translateY(-4px)}
+  @media (prefers-reduced-motion:reduce){
+    .hex img,.hex::after,.hex .hex-tag{transition:none}
+    .hex:hover img{transform:none}
+  }
+  /* Row 2 (offset) — 2 photo hexes */
+  .hex.h0{ top:46.15%; left:16.67%; }
+  .hex.h1{ top:46.15%; left:50%;    }
+  /* Row 3 (non-offset) — 3 photo hexes */
+  .hex.h2{ top:69.23%; left:0;      }
+  .hex.h3{ top:69.23%; left:33.33%; }
+  .hex.h4{ top:69.23%; left:66.67%; }
+
+  /* Decorative outline accents — BOLD ring, fills upper rows */
+  .hex-outline{position:absolute;width:33.33%;aspect-ratio:170/196;pointer-events:none}
+  .hex-outline::before,.hex-outline::after{content:"";position:absolute;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .hex-outline::before{inset:0;background:currentColor}
+  .hex-outline::after{inset:7%;background:var(--lab-bg)}
+  .hex-outline.mint{color:var(--lab-mint)}
+  .hex-outline.dark{color:var(--lab-mint-dark)}
+  .hex-outline.soft{color:var(--lab-mint-soft)}
+  /* Row 0 (offset, top of cluster) — 2 outlines */
+  .hex-outline.rNa{ top:0;       left:16.67%; }
+  .hex-outline.rNb{ top:0;       left:50%;    }
+  /* Row 1 (non-offset) — 3 outlines */
+  .hex-outline.r0a{ top:23.08%;  left:0;      }
+  .hex-outline.r0b{ top:23.08%;  left:33.33%; }
+  .hex-outline.r0c{ top:23.08%;  left:66.67%; }
+
+  /* ============ ANIMATIONS (extraídas do Trasmontano / Elementor Pro / animate.css) ============ */
+  /* Pre-animation hidden state — equivalent to .elementor-invisible */
+  .reveal{opacity:0;visibility:hidden}
+  .reveal.in{opacity:1;visibility:visible;animation-duration:1s;animation-fill-mode:both}
+
+  /* Default = fadeInUp (used as base reveal) */
+  .reveal.in,.reveal.fadeInUp.in{animation-name:fadeInUp}
+  .reveal.fadeInRight.in{animation-name:fadeInRight}
+  .reveal.fadeInLeft.in{animation-name:fadeInLeft}
+  .reveal.fadeIn.in{animation-name:fadeIn}
+  .reveal.zoomIn.in{animation-name:zoomIn}
+
+  /* Staggered delays (matches Elementor _animation_delay) */
+  .reveal.delay-1.in{animation-delay:.2s}
+  .reveal.delay-2.in{animation-delay:.4s}
+  .reveal.delay-3.in{animation-delay:.6s}
+
+  /* === KEYFRAMES (cópia exata das usadas no Trasmontano) === */
+  @keyframes fadeIn{
+    0%{opacity:0}
+    100%{opacity:1}
+  }
+  @keyframes fadeInUp{
+    0%{opacity:0;transform:translate3d(0,100%,0)}
+    100%{opacity:1;transform:none}
+  }
+  @keyframes fadeInRight{
+    0%{opacity:0;transform:translate3d(100%,0,0)}
+    100%{opacity:1;transform:none}
+  }
+  @keyframes fadeInLeft{
+    0%{opacity:0;transform:translate3d(-100%,0,0)}
+    100%{opacity:1;transform:none}
+  }
+  @keyframes zoomIn{
+    0%{opacity:0;transform:scale3d(.3,.3,.3)}
+    50%{opacity:1}
+    100%{transform:none;opacity:1}
+  }
+
+  /* === Hover transforms (Elementor padrão) === */
+  .net-photo .photo,.feat,.b-card,.cert-badge{transition:transform .4s ease,box-shadow .4s ease}
+  .net-photo .photo:hover,.feat:hover{transform:scale(1.05)}
+  .cert-badge:hover{transform:scale(1.1)}
+
+  /* elementor-animation-grow equivalent (buttons/icons) */
+  .btn-yellow,.lab-cta,.fab,.foot-social a{transition:transform .3s ease,box-shadow .3s ease}
+  .btn-yellow:hover,.lab-cta:hover{transform:scale(1.05)}
+  .fab:hover{transform:scale(1.12)}
+  .foot-social a:hover{transform:translateY(-3px)}
+
+  /* ============================================================
+     VIDEO SECTION — institutional YouTube embed
+     ============================================================ */
+  .video-section{
+    background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);
+    padding:var(--section-y) 0;
+    position:relative;overflow:hidden;
+  }
+  .video-section::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 18% 12%,rgba(255,255,255,.10),transparent 60%),radial-gradient(50% 40% at 85% 100%,rgba(0,153,216,.18),transparent 65%);pointer-events:none;z-index:0}
+  /* Decorative pseudo-elements removed (were rendering as artifacts) */
+  .video-inner{
+    max-width:1100px;margin:0 auto;padding:0 var(--page-gutter);
+    position:relative;z-index:1;
+  }
+  .video-head{text-align:center;margin-bottom:var(--title-gap);max-width:680px;margin-left:auto;margin-right:auto}
+  .video-head .eyebrow-tag{
+    display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.6px;
+    background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    text-transform:uppercase;margin-bottom:var(--tight-gap);
+  }
+  .video-head h2{
+    font-size:36px;font-weight:800;color:#fff;
+    letter-spacing:-.8px;line-height:1.15;margin-bottom:var(--heading-sub-gap);
+    text-wrap:balance;
+  }
+  .video-head p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.6;margin:0 auto}
+  .video-frame{
+    position:relative;width:100%;aspect-ratio:16/9;
+    border-radius:18px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);
+    background:#000;
+  }
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  /* Lite facade — clickable thumbnail with play button (loads iframe on click) */
+  .video-facade{
+    position:absolute;inset:0;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background-size:cover;background-position:center;
+    transition:transform .4s ease;
+  }
+  .video-facade::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,24,64,.10) 0%,rgba(10,24,64,.55) 100%);
+  }
+  .video-facade .play-btn{
+    position:relative;z-index:1;
+    width:88px;height:88px;border-radius:50%;
+    background:var(--gold-grad);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 12px rgba(201,162,75,.14), 0 0 0 28px rgba(201,162,75,.08), var(--halo-gold);
+    transition:transform .35s cubic-bezier(.2,.6,.2,1);
+  }
+  .video-facade .play-btn::after{
+    content:"";display:block;
+    width:0;height:0;
+    border-left:24px solid var(--primary);
+    border-top:14px solid transparent;
+    border-bottom:14px solid transparent;
+    margin-left:6px;
+  }
+  .video-facade:hover .play-btn{transform:scale(1.08)}
+  .video-facade .video-label{
+    position:absolute;bottom:24px;left:28px;right:28px;
+    z-index:1;color:#fff;
+    font-size:14px;font-weight:600;letter-spacing:-.1px;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+    display:flex;align-items:center;gap:10px;
+  }
+  .video-facade .video-label svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none;flex-shrink:0}
+
+  @media (max-width:880px){
+    .video-head h2{font-size:26px}
+  }
+
+  /* ============ FAQ ============ */
+  .faq{padding:var(--section-y) 0;background:var(--offwhite);position:relative;overflow:hidden}
+  .faq-inner{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter);display:grid;grid-template-columns:.7fr 1.3fr;gap:var(--s-8);align-items:start}
+  .faq-head h2{font-size:36px;font-weight:800;color:var(--primary);letter-spacing:-.8px;line-height:1.15;margin-bottom:var(--heading-sub-gap)}
+  .faq-head p{font-size:15px;color:var(--text-3);line-height:1.6;max-width:360px}
+  .faq-list{display:flex;flex-direction:column;gap:var(--tight-gap)}
+  details.q{border:1px solid #e0e7ed;border-radius:6px;background:#fff;overflow:hidden;transition:border-color .2s}
+  details.q[open]{border-color:var(--primary)}
+  details.q summary{padding:22px 28px;font-weight:700;font-size:16px;color:var(--primary);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .25s,color .25s;letter-spacing:-.1px}
+  details.q summary::-webkit-details-marker{display:none}
+  details.q[open] summary{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);color:#fff}
+  details.q summary .icon{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:400;line-height:1;color:var(--primary);transition:all .25s}
+  details.q[open] summary .icon{border-color:#fff;color:#fff}
+  details.q .a-wrap{padding:18px 28px 24px;background:#fff}
+  details.q .a{border-left:4px solid transparent;border-image:var(--gold-grad) 1;padding:6px 0 6px 20px;font-size:15px;color:var(--text-2);line-height:1.6}
+
+  /* ============ FINAL CTA ============ */
+  .faq-cta{grid-column:1/-1;display:flex;justify-content:center;margin-top:var(--block-gap)}
+  .faq-cta .btn-yellow{padding:18px 36px;font-size:14px}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--offwhite);padding:var(--section-y-sm) 0 var(--s-6);color:var(--text-2);position:relative}
+  .foot-inner{max-width:1200px;margin:0 auto;padding:0 var(--page-gutter)}
+  .foot-social{display:flex;gap:var(--inline-gap);margin-bottom:var(--title-gap)}
+  .foot-social a{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--primary)}
+  .foot-social svg{width:22px;height:22px;stroke:var(--primary);stroke-width:1.8;fill:none}
+  .foot-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-6);margin-bottom:var(--block-gap)}
+  .foot-col h5{font-size:14px;font-weight:800;color:var(--text);margin-bottom:var(--s-5);letter-spacing:-.1px;text-transform:none}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:var(--inline-gap)}
+  .foot-col ul a{font-size:13px;color:var(--text-2);text-decoration:underline;text-decoration-color:#cdd5e0;text-underline-offset:3px;line-height:1.4}
+  .foot-col ul a:hover{color:var(--primary);text-decoration-color:var(--primary)}
+  .foot-divider{border-top:1px solid #d8dde8;margin:var(--s-2) 0 var(--block-gap)}
+  .demo-block{margin-bottom:var(--title-gap)}
+  .demo-block h5{font-size:14px;font-weight:800;color:var(--text);margin-bottom:var(--inline-gap)}
+  .demo-years{display:flex;gap:var(--s-5);flex-wrap:wrap;align-items:center}
+  .demo-years a{font-size:13px;color:var(--text-2);text-decoration:underline;text-decoration-color:#cdd5e0;text-underline-offset:3px}
+  .demo-years a:hover{color:var(--primary)}
+  .demo-years .muted{font-size:13px;color:var(--text-3)}
+  .foot-bottom{display:grid;grid-template-columns:1.5fr 1fr auto;gap:var(--s-5);align-items:center;padding-top:var(--s-5);border-top:1px solid #d8dde8}
+  .foot-bottom .legal{font-size:12px;color:var(--text-3);line-height:1.6}
+  .foot-bottom .help{font-size:13px;color:var(--text-2);text-align:center}
+  .foot-bottom .help a{color:var(--primary);font-weight:700;text-decoration:underline}
+  .ans-seals{display:flex;gap:10px;align-items:center}
+  .ans-seal-rect{background:#000;color:#fff;font-size:9px;font-weight:800;letter-spacing:.4px;padding:6px 10px;border-radius:2px;line-height:1.2;display:flex;align-items:center}
+  .ans-seal-circle{width:64px;height:64px;border:1.5px solid #2a8f96;border-radius:6px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:#2a8f96;text-align:center;line-height:1.1;padding:4px;position:relative}
+  .ans-seal-circle::before{content:"ANS";font-size:11px;font-weight:900;color:#2a8f96;letter-spacing:1px}
+  /* floating buttons */
+  .fab-stack{position:fixed;right:24px;bottom:28px;display:flex;flex-direction:column;gap:12px;z-index:100}
+  .fab{width:64px;height:64px;border-radius:999px;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:none;font-family:var(--font);font-size:15px;font-weight:700;text-decoration:none;transition:width .35s cubic-bezier(.4,0,.2,1),box-shadow .25s ease,transform .25s ease;overflow:hidden;padding:0;white-space:nowrap}
+  .fab svg{width:30px;height:30px;flex-shrink:0;transition:margin .35s cubic-bezier(.4,0,.2,1)}
+  .fab.wa svg{fill:#fff;stroke:none;width:32px;height:32px}
+  .fab .fab-label{max-width:0;opacity:0;transition:max-width .35s cubic-bezier(.4,0,.2,1),opacity .25s ease;display:inline-block}
+  .fab:hover{width:230px;padding:0 24px 0 18px;transform:translateY(-2px)}
+  .fab:hover .fab-label{max-width:200px;opacity:1;margin-right:4px}
+  .fab.wa{background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);box-shadow:0 10px 28px rgba(18,140,126,.45),0 4px 12px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,.55);animation:wa-pulse 2.6s ease-out infinite}
+  .fab.wa:hover{box-shadow:0 14px 36px rgba(18,140,126,.55),0 6px 18px rgba(37,211,102,.45)}
+  @keyframes wa-pulse{
+    0%{box-shadow:0 10px 28px rgba(18,140,126,.45),0 4px 12px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,.55)}
+    70%{box-shadow:0 10px 28px rgba(18,140,126,.45),0 4px 12px rgba(37,211,102,.35),0 0 0 22px rgba(37,211,102,0)}
+    100%{box-shadow:0 10px 28px rgba(18,140,126,.45),0 4px 12px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,0)}
+  }
+  @media (max-width:560px){
+    .fab{width:56px;height:56px}
+    .fab:hover{width:56px;padding:0}
+    .fab:hover .fab-label{max-width:0;opacity:0}
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:880px){
+    .head-inner{flex-direction:column;align-items:flex-start;gap:12px}
+    .hero{padding:32px 0 0}
+    .hero-grid{grid-template-columns:1fr;gap:32px;padding:0 24px}
+    .hero h1{font-size:32px}
+    .form-card{grid-template-columns:1fr;gap:20px;padding:24px;border-radius:14px}
+    .form-card .pitch .arrow{display:none}
+    .form-fields{grid-template-columns:1fr}
+    .form-card .btn-yellow{width:100%}
+    .stats-inner{grid-template-columns:1fr;gap:24px}
+    .stat-div{display:none}
+    .feat{flex:0 0 auto}
+    .net-row-inner{grid-template-columns:1fr;gap:20px}
+    .net-row .items{grid-template-columns:1fr}
+    .sec-title h2,.faq-head h2{font-size:24px}
+    .container,.form-bar,.stats,.faq{padding-left:0;padding-right:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="head-inner">
+    <div class="logo">
+      <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
+    </div>
+
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+<div class="hero-grid">
+    <div>
+      <h1>O plano de saúde da Baixada Santista, feito por quem vive aqui há 96 anos.</h1>
+      <p class="lead">Hospital Casa de Saúde, Frei Galvão, Imuvi, Cellula Mater. A rede que você já conhece, num plano só. Para você e para a sua família, em Santos, Guarujá, Praia Grande e mais 6 cidades.</p>
+      <div class="pill-row">
+        <a href="#planos" class="btn-pill-outline" onclick="openPlanModal('senior');return false;">
+          <svg viewBox="0 0 24 24"><path d="M9 11h6M9 15h4"/><path d="M5 4h14a1 1 0 0 1 1 1v15l-3-2-3 2-3-2-3 2-3-2V5a1 1 0 0 1 1-1z"/></svg>
+          Cotação em 1 minuto
+        </a>
+        <a href="#rede" class="btn-pill-outline" onclick="document.querySelector('.city-explorer').scrollIntoView({behavior:'smooth',block:'start'});return false;">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Ver hospitais perto de mim
+        </a>
+        <a href="#telemedicina" class="btn-pill-outline">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Telemedicina 24h
+        </a>
+        <a href="#whatsapp" class="btn-pill-outline">
+          <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.5 17l-1.5 5 5.2-1.4A11 11 0 1 0 20.5 3.5z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="photo"><img src="assets/hero-photo.png" alt="Casal sorrindo na Baixada Santista"></div>
+      <div class="hero-loc">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Santos, SP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN PICKER ============ -->
+<section class="plan-picker" id="planos">
+<div class="plan-picker-inner">
+    <div class="plan-picker-head reveal">
+      <span class="eyebrow-tag">Cotação em 1 minuto</span>
+      <h2>Qual modalidade combina com a sua vida?</h2>
+      <p>Em menos de 1 minuto você recebe um valor sob medida pra sua idade, sua família ou sua empresa. Direto no seu WhatsApp.</p>
+    </div>
+
+    <div class="plan-cards reveal delay-1">
+      <!-- Sênior -->
+      <button class="plan-card" data-plan="senior" aria-pressed="false">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <span class="pc-tag" style="background-color: rgb(232, 244, 249)">44+ anos</span>
+        <h3 class="pc-title">Plano Sênior</h3>
+        <p class="pc-sub">Para quem já passou dos 44</p>
+        <ul class="pc-features">
+          <li>Carências reduzidas em campanha</li>
+          <li>Telemedicina 24h sem custo</li>
+          <li>Sem coparticipação em consulta</li>
+        </ul>
+        <span class="pc-cta">Quero esse plano <span class="arrow">→</span></span>
+      </button>
+
+      <!-- PME (featured / central) -->
+      <button class="plan-card featured" data-plan="pme" aria-pressed="false">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg>
+        </div>
+        <span class="pc-tag">CNPJ ou MEI</span>
+        <h3 class="pc-title">PME</h3>
+        <p class="pc-sub">A partir de 2 vidas no CNPJ</p>
+        <ul class="pc-features">
+          <li>Mensalidade que cabe no caixa</li>
+          <li>Faturamento sem dor de cabeça</li>
+          <li>Suporte direto pro seu RH</li>
+        </ul>
+        <span class="pc-cta">Quero esse plano <span class="arrow">→</span></span>
+      </button>
+
+      <!-- Adesão -->
+      <button class="plan-card" data-plan="adesao" aria-pressed="false">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6M15 19c0-2.4 1.6-4.5 4-4.9"/></svg>
+        </div>
+        <span class="pc-tag">Entidades de classe</span>
+        <h3 class="pc-title">Adesão</h3>
+        <p class="pc-sub">OAB, CREA, sindicatos e mais</p>
+        <ul class="pc-features">
+          <li>Preço de plano coletivo</li>
+          <li>Entrada pela sua entidade</li>
+          <li>Sem precisar de CNPJ</li>
+        </ul>
+        <span class="pc-cta">Quero esse plano <span class="arrow">→</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="stats">
+    <div class="stats-pair active" id="sp1">
+      <div class="stat">
+        <div class="num"><span class="plus">+</span>96</div>
+        <div class="lbl">Anos cuidando de famílias da Baixada</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <div class="num"><span class="plus">+</span>12mil</div>
+        <div class="lbl">Atendimentos por mês, aqui na região</div>
+      </div>
+    </div>
+    <div class="stats-pair" id="sp2">
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="lbl">Centros médicos próprios da Blue Med</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <div class="num">9</div>
+        <div class="lbl">Cidades da Baixada Santista atendidas</div>
+      </div>
+    </div>
+</section>
+<script>
+(function(){
+  const pairs = document.querySelectorAll('.stats-pair');
+  let cur = 0;
+  setInterval(() => {
+    const prev = cur;
+    cur = (cur + 1) % pairs.length;
+    pairs[prev].classList.remove('active');
+    pairs[prev].classList.add('exit');
+    pairs[cur].classList.remove('exit');
+    pairs[cur].classList.add('active');
+    setTimeout(() => {
+      pairs[prev].classList.remove('exit');
+    }, 700);
+  }, 5000);
+})();
+</script>
+
+<!-- ============ ABOUT (description + features) ============ -->
+<section class="about">
+<div class="intro">
+    <div class="info-box">
+      O <strong>Plano Sênior Blue Med</strong> é o plano de quem vive aqui. Foi pensado pra quem mora na <strong>Baixada Santista</strong> e quer atendimento perto de casa, agenda que abre na semana, e uma equipe que conhece a região onde você cresceu.
+    </div>
+  </div>
+
+  <div class="feat-grid" id="featCarousel">
+    <div class="feat-track" id="featTrack">
+    <!-- 1. Cobertura Ampla -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h4>Cobertura Ampla</h4>
+      <p>Hospital, laboratório e centro de especialidades nas 9 cidades da Baixada. Você nunca precisa atravessar a serra pra ser atendido.</p>
+    </div>
+
+    <!-- 2. Agendamento Rápido -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <h4>Agendamento Rápido</h4>
+      <p>Consulta marcada em dias, não em meses. App, telefone ou direto na recepção, do jeito que for melhor pra você.</p>
+    </div>
+
+    <!-- 3. Profissionais Qualificados -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </div>
+      <h4>Profissionais Qualificados</h4>
+      <p>Médicos da região, com nome e endereço fixo. Você sabe quem te atende e onde encontra de novo.</p>
+    </div>
+
+    <!-- 4. Infraestrutura Moderna -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+      </div>
+      <h4>Infraestrutura Moderna</h4>
+      <p>Tomografia, ressonância, ultrassom e laboratório. Tudo na nossa rede, sem precisar buscar fora.</p>
+    </div>
+
+    <!-- 5. Suporte Dedicado -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg>
+      </div>
+      <h4>Suporte Dedicado</h4>
+      <p>Atendimento humano, em português claro. Sem URA infinita pra resolver o básico do plano.</p>
+    </div>
+
+    <!-- 6. Confiabilidade Comprovada -->
+    <div class="feat">
+      <div class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h4>Confiabilidade Comprovada</h4>
+      <p>96 anos cuidando de famílias da Baixada, regulada pela ANS. A operadora mais antiga ainda em atividade na região.</p>
+    </div>
+
+  </div><!-- /feat-track -->
+  </div><!-- /feat-grid -->
+
+  <div class="dots" id="featDots" aria-label="Mais benefícios">
+    <span class="dot active" data-page="0"></span>
+    <span class="dot" data-page="1"></span>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="#planos" class="btn-yellow" onclick="openPlanModal('senior');return false;">Quero minha cotação</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  const track = document.getElementById('featTrack');
+  const dots = document.querySelectorAll('#featDots .dot');
+  const carousel = document.getElementById('featCarousel');
+  let page = 0;
+  const totalPages = 2;
+
+  function getPerPage(){ return 3; }
+
+  function sizeCards(){
+    /* CSS grid handles sizing — just set snap alignment for paging */
+    const perPage = 3;
+    Array.from(track.children).forEach((c, i) => {
+      c.style.scrollSnapAlign = (i % perPage === 0) ? 'start' : 'none';
+    });
+  }
+
+  function goTo(p){
+    page = Math.max(0, Math.min(p, totalPages - 1));
+    const targetCard = track.children[page * 3];
+    if (targetCard) {
+      track.scrollTo({left: targetCard.offsetLeft - track.offsetLeft, behavior: 'smooth'});
+    }
+    dots.forEach((d,i) => d.classList.toggle('active', i === page));
+  }
+
+  /* Sync dots with scroll position */
+  let scrollTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const perPage = getPerPage();
+      const gap = 24;
+      const containerW = track.clientWidth;
+      const cardW = (containerW - gap * (perPage - 1)) / perPage;
+      const pageW = perPage * (cardW + gap);
+      const p = Math.round(track.scrollLeft / pageW);
+      if (p !== page) {
+        page = p;
+        dots.forEach((d,i) => d.classList.toggle('active', i === page));
+      }
+    }, 100);
+  });
+
+  sizeCards();
+  window.addEventListener('resize', () => { sizeCards(); goTo(page); });
+
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.page)));
+
+  /* Mouse drag for desktop */
+  let isDown = false, startX = 0, startScroll = 0;
+  track.addEventListener('mousedown', e => {
+    isDown = true; track.classList.add('dragging');
+    startX = e.pageX - track.offsetLeft;
+    startScroll = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+  track.addEventListener('mouseup', () => {
+    isDown = false; track.classList.remove('dragging');
+    /* Snap to nearest page */
+    const perPage = getPerPage();
+    const gap = 24;
+    const containerW = track.clientWidth;
+    const cardW = (containerW - gap * (perPage - 1)) / perPage;
+    const pageW = perPage * (cardW + gap);
+    const p = Math.round(track.scrollLeft / pageW);
+    goTo(p);
+  });
+  track.addEventListener('mousemove', e => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = startScroll - (x - startX);
+  });
+
+  sizeCards();
+  goTo(0);
+})();
+</script>
+
+<!-- ============ SECTION TITLE ============ -->
+<section class="sec-title">
+  <div class="title-inline">
+    <h2>Quando dá pra ir andando, plano de saúde vira outra coisa.</h2>
+    <span class="sub">Veja os hospitais, laboratórios e centros de especialidades que estão a poucas quadras da sua casa.</span>
+  </div>
+</section>
+
+<!-- ============ NETWORK ROW 1 — Hospitais (text left, photo right) ============ -->
+<div class="net-row">
+<div class="net-row-inner">
+    <div class="net-text reveal fadeInUp">
+      <h3>Os hospitais que ficam ao seu lado quando importa</h3>
+      <ul class="pill-list">
+        <li>Hospital Casa de Saúde – Santos (H/M/PS)</li>
+        <li>Hospital Casa de Saúde – Praia Grande (H/PS)</li>
+        <li>Hospital Casa de Saúde – Guarujá (H/M/PS)</li>
+        <li>Hospital Infantil Gonzaga – Santos (PS)</li>
+        <li>Hospital Frei Galvão – Santos (PS)</li>
+        <li>Hospital Frei Galvão – São Vicente (PA)</li>
+      </ul>
+    </div>
+    <div class="net-photo reveal fadeInRight delay-1">
+      <span class="bracket tl"></span>
+      <div class="photo has-img"><img src="assets/hospital-casa-de-saude.png" alt="Hospital Casa de Saúde — fachada"></div>
+      <span class="bracket br"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NETWORK ROW 2 — Centros de Especialidades (photo left, text right) ============ -->
+<div class="net-row reverse">
+<div class="net-row-inner">
+    <div class="net-text reveal fadeInUp">
+      <h3>Especialistas, terapias e exames em um único lugar</h3>
+      <ul class="pill-list">
+        <li>Imuvi Ana Costa – Santos</li>
+        <li>Imuvi Costa e Silva – Praia Grande</li>
+        <li>Imuvi Terapias Costa e Silva – Praia Grande</li>
+        <li>Imuvi Lab Costa Silva – Praia Grande</li>
+        <li>Centro Médico Blue Med Saúde – Guarujá</li>
+      </ul>
+    </div>
+    <div class="net-photo reveal fadeInLeft delay-1">
+      <span class="bracket tl"></span>
+      <div class="photo"><img src="assets/centro-imuvi.png" alt="Centro Médico Blue Med — fachada"></div>
+      <span class="bracket br"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NETWORK ROW 3 — Diagnóstico por Imagem (text left, photo right) ============ -->
+<div class="net-row">
+<div class="net-row-inner">
+    <div class="net-text reveal fadeInUp">
+      <h3>Exames de imagem sem fila de espera de 60 dias</h3>
+      <ul class="pill-list">
+        <li>Hospital Casa de Saúde – Santos</li>
+        <li>Hospital Casa de Saúde – Praia Grande</li>
+        <li>One Rad Medicina Diagnóstica – Guarujá</li>
+      </ul>
+    </div>
+    <div class="net-photo reveal fadeInRight delay-1">
+      <span class="bracket tl"></span>
+      <div class="photo"><img src="assets/diagnostico-imagem.png" alt="Sala de tomografia · diagnóstico por imagem"></div>
+      <span class="bracket br"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CITY EXPLORER ============ -->
+<section class="city-explorer">
+  <div class="city-inner">
+    <div class="city-head reveal fadeInUp">
+      <span class="eyebrow-tag">Rede por cidade</span>
+      <h2>Em qual cidade da Baixada você mora?</h2>
+      <p>Clique na sua cidade e veja, em segundos, todo o atendimento Blue Med no seu bairro. Hospital, laboratório, exame de imagem, especialista.</p>
+    </div>
+
+    <div class="city-tabs reveal fadeInUp delay-1" id="cityTabs">
+      <button class="city-tab active" data-city="santos">Santos</button>
+      <button class="city-tab" data-city="praia-grande">Praia Grande</button>
+      <button class="city-tab" data-city="guaruja">Guarujá</button>
+      <button class="city-tab" data-city="sao-vicente">São Vicente</button>
+      <button class="city-tab" data-city="cubatao">Cubatão</button>
+      <button class="city-tab" data-city="bertioga">Bertioga</button>
+      <button class="city-tab" data-city="mongagua">Mongaguá</button>
+      <button class="city-tab" data-city="itanhaem">Itanhaém</button>
+      <button class="city-tab" data-city="peruibe">Peruíbe</button>
+    </div>
+
+    <!-- SANTOS -->
+    <div class="city-panel active" data-city="santos">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Santos</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (H/M/PS)</li>
+            <li>Hospital Infantil Gonzaga (PS)</li>
+            <li>Hospital Frei Galvão (PS)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Imuvi Ana Costa</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Hospital Casa de Saúde — CDA</li>
+            <li>Centro Médico Blue Med — CDA</li>
+            <li>Vila Rica Medicina Diagnóstica</li>
+            <li>Laboratório Pasteur</li>
+            <li>Cellula Mater</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRAIA GRANDE -->
+    <div class="city-panel" data-city="praia-grande">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Praia Grande</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (H/PS)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Imuvi Costa e Silva</li>
+            <li>Imuvi Terapias Costa e Silva</li>
+            <li>Imuvi Lab Costa Silva</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Hospital Casa de Saúde — CDA</li>
+            <li>Unidade CDA Diagnóstico e Análises</li>
+            <li>Centro Médico Blue Med — CDA</li>
+            <li>Laboratório Pasteur</li>
+            <li>Cellula Mater</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUARUJÁ -->
+    <div class="city-panel" data-city="guaruja">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Guarujá</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (H/M/PS)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>One Rad Medicina Diagnóstica</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Centro Médico Blue Med Saúde</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Hospital Casa de Saúde — CDA</li>
+            <li>Centro Médico Blue Med — CDA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÃO VICENTE -->
+    <div class="city-panel" data-city="sao-vicente">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>São Vicente</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Frei Galvão (PA)</li>
+            <li>Hospital Casa de Saúde (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Policlínica Ipiranga</li>
+            <li>Clínica Médica Gaddini</li>
+            <li>Centro Clínico Renascer</li>
+            <li>Imuvi Ana Costa (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>RRM Saúde</li>
+            <li>Clínica Médica Ipiranga</li>
+            <li>Cellula Mater</li>
+            <li>Laboratório Pasteur (Santos)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUBATÃO -->
+    <div class="city-panel" data-city="cubatao">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Cubatão</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Centro Médico Somaprev Global Físio</li>
+            <li>Centro Médico Popular</li>
+            <li>Cubatão Clínicas</li>
+            <li>Imuvi Ana Costa (Santos)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Pasteur Análises Clínicas</li>
+            <li>Cellula Mater</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BERTIOGA -->
+    <div class="city-panel" data-city="bertioga">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Bertioga</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Guarujá)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>One Rad Medicina Diagnóstica (Guarujá)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Clínica Hans Staden</li>
+            <li>Simbio Saúde Integrada</li>
+            <li>Centro Médico Blue Med (Guarujá)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>JAC Laboratório</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MONGAGUÁ -->
+    <div class="city-panel" data-city="mongagua">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Mongaguá</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Nova Era Clínicas</li>
+            <li>Clínica de Fraturas</li>
+            <li>Imuvi Costa e Silva (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Laboratório Pasteur (Praia Grande)</li>
+            <li>Cellula Mater (Praia Grande)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITANHAÉM -->
+    <div class="city-panel" data-city="itanhaem">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Itanhaém</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Itamed</li>
+            <li>Clínica São Judas</li>
+            <li>Clínica Amor Saúde</li>
+            <li>Plenamente Psicologia</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Unidade CDA Diagnóstico e Análises (Praia Grande)</li>
+            <li>Cellula Mater (Praia Grande)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERUÍBE -->
+    <div class="city-panel" data-city="peruibe">
+      <div class="city-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Peruíbe</h3>
+      </div>
+      <div class="city-grid">
+        <div class="city-cat">
+          <h4>Hospitais</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Diagnóstico por Imagem</h4>
+          <ul>
+            <li>Hospital Casa de Saúde (Praia Grande)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Centros de Especialidades</h4>
+          <ul>
+            <li>Clínica São Pedro</li>
+            <li>Itamed (Itanhaém)</li>
+            <li>Clínica Amor Saúde (Itanhaém)</li>
+          </ul>
+        </div>
+        <div class="city-cat">
+          <h4>Exames e Análises</h4>
+          <ul>
+            <li>Laboratório RUIZ</li>
+            <li>Cellula Mater (Praia Grande)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="city-cta">
+      <div class="callout-dashed" style="max-width:680px;width:100%">
+        Não encontrou sua cidade na lista? Atendemos toda a Baixada Santista — fale com um consultor para conferir a rede mais próxima de você.
+      </div>
+      <a href="#planos" class="btn-yellow" onclick="openPlanModal('senior');return false;">Quero saber valores para minha cidade</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const tabs = document.querySelectorAll('#cityTabs .city-tab');
+  const panels = document.querySelectorAll('.city-panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    const city = t.dataset.city;
+    tabs.forEach(x => x.classList.toggle('active', x === t));
+    panels.forEach(p => p.classList.toggle('active', p.dataset.city === city));
+  }));
+})();
+</script>
+
+<!-- ============ LAB SECTION ============ -->
+<section class="lab-row">
+<div class="lab-inner">
+    <div class="reveal">
+      <div class="lab-brand">
+        <img src="assets/cellula-mater-logo.png" alt="Cellula Mater · Laboratório de Análises Clínicas">
+      </div>
+      <span class="lab-eyebrow">Parceria há 33 anos</span>
+      <h3>Exames pelo Cellula Mater, o laboratório de confiança da Baixada desde 1992.</h3>
+      <p class="lab-lead">Coleta na unidade ou na sua casa, resultado no celular em poucos dias e o mesmo padrão de laboratório que sua família já conhece. Faz parte do seu plano, sem custo extra.</p>
+
+      <div class="lab-feat-btns">
+        <div class="lab-feat-btn">Coleta nas unidades</div>
+        <div class="lab-feat-btn">Coleta domiciliar em toda a Baixada</div>
+        <div class="lab-feat-btn">Resultados online</div>
+      </div>
+
+      <div class="cert-block">
+        <div class="cert-label">Acreditações e certificações:</div>
+        <div class="cert-row">
+          <img class="badges-strip" src="assets/badges-clinicas.png" alt="Acreditações: Qmentum Platinum, PALC SBPC/ML, Controllab, Great Place to Work">
+        </div>
+      </div>
+
+      <button class="lab-cta">Ver unidades de coleta perto de mim</button>
+
+      <p class="lab-footnote info-box" style="max-width:480px">Além do Cellula Mater, o <strong>Plano Sênior Blue Med</strong> tem mais de uma centena de <strong>clínicas, laboratórios e centros de diagnóstico credenciados</strong> nas 9 cidades da Baixada. Sempre tem um perto.</p>
+    </div>
+
+    <div class="hex-stage reveal fadeInRight delay-1">
+      <!-- Row 1 -->
+      <div class="hex h0 tinted">
+        <img src="assets/laboratorio-cellula-mater.png" alt="Laboratório Cellula Mater · fachada">
+        <span class="hex-tag">Cellula Mater</span>
+      </div>
+      <div class="hex h1 tinted">
+        <img src="https://cellulamater.com.br/wp-content/uploads/2025/03/img-check-up-14.jpg" alt="Check-up Saúde do Coração">
+        <span class="hex-tag">Saúde do<br>coração</span>
+      </div>
+      <!-- Row 2 -->
+      <div class="hex h2 tinted">
+        <img src="https://cellulamater.com.br/wp-content/uploads/2025/03/img-check-up-01.jpg" alt="Check-up Atleta · Fitness">
+        <span class="hex-tag">Atleta &amp;<br>fitness</span>
+      </div>
+      <div class="hex h3 tinted">
+        <img src="https://cellulamater.com.br/wp-content/uploads/2025/03/img-check-up-04.jpg" alt="Check-up Gestante">
+        <span class="hex-tag">Gestante</span>
+      </div>
+      <div class="hex h4 tinted">
+        <img src="https://cellulamater.com.br/wp-content/uploads/2025/03/img-check-up-15.jpg" alt="Check-up Tireóide endócrino">
+        <span class="hex-tag">Tireóide</span>
+      </div>
+      <!-- Row 0: 2 decorative outline hexes (top, offset) -->
+      <div class="hex-outline mint rNa"></div>
+      <div class="hex-outline dark rNb"></div>
+      <!-- Row 1: 3 decorative outline hexes -->
+      <div class="hex-outline soft r0a"></div>
+      <div class="hex-outline mint r0b"></div>
+      <div class="hex-outline soft r0c"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* Reveal observer moved to end of body so it sees every .reveal element */
+</script>
+
+<!-- ============ VIDEO SECTION ============ -->
+<section class="video-section" data-screen-label="Vídeo institucional">
+  <div class="video-inner">
+    <div class="video-head reveal fadeInUp">
+      <span class="eyebrow-tag">A história da Blue Med em 2 minutos</span>
+      <h2>A gente já cuidava de Santos antes da televisão chegar.</h2>
+      <p>Veja como a Blue Med atravessou 96 anos sendo o plano de saúde da Baixada, de família pra família.</p>
+    </div>
+    <div class="video-frame reveal fadeInUp delay-1">
+      <iframe
+        src="https://www.youtube.com/embed/O_tbb6DuiNI?rel=0&modestbranding=1"
+        title="Vídeo institucional Blue Med Saúde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+<div class="faq-inner">
+    <div class="faq-head reveal">
+      <h2>Antes de pegar o WhatsApp, talvez a resposta já esteja aqui.</h2>
+      <p>Separamos as 8 dúvidas mais comuns de quem está prestes a contratar. Se a sua não estiver, fale com a gente direto, sem robô no meio.</p>
+    </div>
+
+    <div class="faq-list reveal delay-1">
+      <details class="q" open>
+        <summary>Quem pode contratar o Plano Sênior Blue Med? <span class="icon">−</span></summary>
+        <div class="a-wrap"><div class="a">A partir de 44 anos, por 3 caminhos: Individual (você sozinho ou com a família), Adesão (pela sua entidade de classe, sem CNPJ) ou Empresarial (com CNPJ ou MEI, a partir de 2 vidas).</div></div>
+      </details>
+      <details class="q">
+        <summary>Vocês têm produtos para a família? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Sim. Cônjuge, filhos e enteados entram como dependentes. A mensalidade de cada um é calculada pela idade.</div></div>
+      </details>
+      <details class="q">
+        <summary>Quais cidades têm cobertura? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">As 9 cidades da Baixada Santista: Santos, Guarujá, São Vicente, Praia Grande, Cubatão, Bertioga, Mongaguá, Itanhaém e Peruíbe. Você não fica preso a um único hospital.</div></div>
+      </details>
+      <details class="q">
+        <summary>Como funcionam as carências reduzidas? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Em campanhas vigentes, a espera pra começar a usar o plano cai bastante. Consulta com clínico, por exemplo, pode liberar em 24 horas. As regras exatas estão no contrato e o consultor te explica antes de assinar.</div></div>
+      </details>
+      <details class="q">
+        <summary>A telemedicina está incluída sem custo adicional? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Sim, sem custo extra. Você fala com um clínico geral pelo app Blue Med, 24 horas por dia, todos os dias do ano.</div></div>
+      </details>
+      <details class="q">
+        <summary>Qual o valor do plano? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Depende da sua idade, da quantidade de dependentes e da acomodação que você escolhe (enfermaria ou apartamento). A cotação leva 1 minuto e chega no seu WhatsApp.</div></div>
+      </details>
+      <details class="q">
+        <summary>Vocês têm clube de descontos? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Sim. Cliente Blue Med tem desconto em farmácias, ópticas, vacinas e em parceiros da Baixada. Pacote Allcare incluso no plano.</div></div>
+      </details>
+      <details class="q">
+        <summary>Posso trocar meu plano atual pelo Plano Sênior Blue Med? <span class="icon">+</span></summary>
+        <div class="a-wrap"><div class="a">Na maioria dos casos, sim, e com aproveitamento das carências que você já cumpriu no plano antigo. Manda o contrato atual no nosso WhatsApp que a gente analisa em até 1 dia útil, sem cobrar nada por isso.</div></div>
+      </details>
+    </div>
+
+    <div class="faq-cta reveal delay-2">
+      <a href="#planos" class="btn-yellow" onclick="openPlanModal('senior');return false;">Quero saber quanto vai custar pra mim</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('details.q').forEach(d => {
+    d.addEventListener('toggle', () => {
+      const ic = d.querySelector('.icon');
+      if (ic) ic.textContent = d.open ? '−' : '+';
+    });
+  });
+</script>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-inner">
+
+    <!-- social icons -->
+    <div class="foot-social">
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="17"/><circle cx="8" cy="7.5" r=".8" fill="currentColor"/><path d="M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 11v6"/></svg></a>
+    </div>
+
+    <!-- 5 columns -->
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h5>A Blue Med</h5>
+        <ul>
+          <li><a href="#">Sobre a Blue Med</a></li>
+          <li><a href="#">Nossos Valores</a></li>
+          <li><a href="#">Vantagens</a></li>
+          <li><a href="#">Museu Virtual</a></li>
+          <li><a href="#">Unidades / Centros Médicos</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Regulamentação ANS</h5>
+        <ul>
+          <li><a href="#">Reajustes de Agrupamento (até 29 beneficiários)</a></li>
+          <li><a href="#">Reajuste de Planos Individuais/Familiares</a></li>
+          <li><a href="#">Regras de exclusão</a></li>
+          <li><a href="#">IDSS</a></li>
+          <li><a href="#">Rol de Procedimentos</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Planos</h5>
+        <ul>
+          <li><a href="#">Plano Sênior</a></li>
+          <li><a href="#">PME Blue Med Mais</a></li>
+          <li><a href="#">PME Consciente</a></li>
+          <li><a href="#">Planos Coletivos Empresariais</a></li>
+          <li><a href="#">Planos Coletivos por Adesão</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Atendimento</h5>
+        <ul>
+          <li><a href="#">Canais de atendimento</a></li>
+          <li><a href="#">Ouvidoria</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Serviços Online</h5>
+        <ul>
+          <li><a href="#">Informe de Rendimentos - Empresa</a></li>
+          <li><a href="#">Rede Credenciada</a></li>
+          <li><a href="#">Substituição de Prestadores</a></li>
+          <li><a href="#">Central de Boletos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-divider"></div>
+
+    <!-- demonstrativos -->
+    <div class="demo-block">
+      <h5>Demonstrativos Financeiros</h5>
+      <div class="demo-years">
+        <a href="#">2018</a>
+        <a href="#">2019</a>
+        <a href="#">2020</a>
+        <a href="#">2021</a>
+        <a href="#">2022</a>
+        <a href="#">2023</a>
+        <a href="#">2024</a>
+        <a href="#">2025</a>
+        <span class="muted">2026 (em atualização)</span>
+      </div>
+    </div>
+
+    <!-- bottom row -->
+    <div class="foot-bottom">
+      <div class="legal">© 2026 Blue Med Saúde · CNPJ: 62.511.019/0001-50 · Código ANS: 34.480-0</div>
+      <div class="help">Precisa de ajuda? <a href="#">Clique aqui</a></div>
+      <div class="ans-seals">
+        <div class="ans-seal-rect">ANS<br>Nº 34.480-0</div>
+        <div class="ans-seal-circle">Agência<br>Nacional de<br>Saúde<br>0800 701 9656</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- floating action buttons -->
+  <div class="fab-stack">
+    <a href="https://wa.me/5513997201460" class="fab wa" aria-label="Falar no WhatsApp" title="Falar no WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16.003 0C7.171 0 0 7.17 0 15.997c0 2.823.737 5.584 2.137 8.014L0 32l8.156-2.139a15.96 15.96 0 0 0 7.847 2.001H16c8.83 0 15.997-7.17 15.997-15.997C32 7.17 24.83 0 16.003 0zM16 29.336h-.003a13.3 13.3 0 0 1-6.776-1.856l-.486-.288-5.04 1.323 1.34-4.92-.317-.504a13.318 13.318 0 0 1-2.04-7.094c0-7.348 5.97-13.32 13.32-13.32 3.557 0 6.9 1.388 9.413 3.906a13.235 13.235 0 0 1 3.906 9.418c0 7.348-5.97 13.336-13.317 13.336zm7.305-9.985c-.4-.2-2.36-1.165-2.726-1.298-.366-.133-.633-.2-.9.2-.265.4-1.033 1.298-1.265 1.564-.233.266-.466.3-.866.1s-1.685-.622-3.21-1.98c-1.186-1.057-1.987-2.364-2.22-2.764-.232-.4-.025-.617.175-.816.18-.18.4-.467.6-.7.2-.233.266-.4.4-.665.133-.265.066-.5-.034-.7-.1-.2-.9-2.166-1.232-2.966-.325-.78-.654-.674-.9-.687-.232-.012-.5-.014-.766-.014a1.47 1.47 0 0 0-1.066.5c-.366.4-1.4 1.367-1.4 3.332s1.433 3.864 1.633 4.13c.2.266 2.82 4.31 6.832 6.046.954.412 1.7.658 2.28.843.957.305 1.83.262 2.518.16.768-.115 2.36-.965 2.694-1.898.333-.933.333-1.733.232-1.898-.1-.166-.366-.265-.766-.465z"/></svg>
+      <span class="fab-label">Fale com a gente</span>
+    </a>
+  </div>
+</footer>
+
+<!-- ============ LEAD-CAPTURE MODAL ============ -->
+<div class="plan-modal" id="planModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="plan-modal-backdrop" data-close></div>
+  <div class="plan-modal-card">
+    <button class="plan-modal-close" data-close aria-label="Fechar">×</button>
+    <div class="plan-modal-card-inner">
+    <span class="plan-modal-chip" id="modalChip">PLANO SÊNIOR</span>
+    <h3>Falta pouco pra você ter um valor exato.</h3>
+    <p class="modal-lead">Preencha em 30 segundos. Um consultor Blue Med te chama no WhatsApp com a cotação pronta. Sem pegadinha, sem ligação a cobrar.</p>
+
+    <form class="plan-modal-form" id="planForm" novalidate>
+      <div class="field">
+        <label for="lf-nome">Nome completo</label>
+        <input id="lf-nome" name="nome" type="text" autocomplete="name" placeholder="Como devemos chamá-lo(a)?" required>
+        <span class="field-error">Informe seu nome.</span>
+      </div>
+
+      <div class="field">
+        <label for="lf-whatsapp">WhatsApp</label>
+        <input id="lf-whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="(13) 99999-9999" required>
+        <span class="field-error">Informe um WhatsApp válido.</span>
+      </div>
+
+      <!-- Dynamic fields injected per plan -->
+      <div id="dynamicFields"></div>
+
+      <div class="field-radio" id="radioPlano">
+        <span class="field-label" id="radioPlanoLabel">Tem plano de saúde há mais de 6 meses?</span>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="tem_plano" value="Sim" required><span>Sim</span></label>
+          <label class="radio-pill"><input type="radio" name="tem_plano" value="Não"><span>Não</span></label>
+        </div>
+        <span class="field-error" style="margin-top:8px">Selecione uma opção.</span>
+      </div>
+
+      <label class="lgpd-check" id="lgpdCheck">
+        <input type="checkbox" name="lgpd" required>
+        <span>Aceito receber contato via WhatsApp (obrigatório por LGPD)</span>
+      </label>
+
+      <button type="submit" class="btn-yellow modal-submit">QUERO MEU VALOR NO WHATSAPP →</button>
+      <p class="modal-lock">🔒 Dados protegidos pela LGPD</p>
+    </form>
+
+    <div class="plan-modal-success">
+      <div class="check-ring">
+        <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+      </div>
+      <h3>Pronto!</h3>
+      <p>Tô te abrindo o WhatsApp pra finalizar sua cotação…</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ============================================================
+  // PLAN PICKER + LEAD MODAL
+  // ============================================================
+  const WHATSAPP_PHONE = '55139XXXXXXXX'; // placeholder — substituir pelo número real
+  const CIDADES = ['Santos','Guarujá','São Vicente','Praia Grande','Cubatão','Bertioga','Mongaguá','Itanhaém','Peruíbe'];
+  const FAIXAS_IDADE = ['44–48','49–53','54–58','59–63','64+'];
+  const VIDAS = ['2 a 5','6 a 29','30 a 99','100 ou mais'];
+
+  const PLAN_LABELS = {
+    senior: 'PLANO SÊNIOR',
+    pme: 'PLANO PME',
+    adesao: 'PLANO POR ADESÃO'
+  };
+
+  const PLAN_RADIO_LABEL = {
+    senior: 'Tem plano de saúde há mais de 6 meses?',
+    pme: 'Empresa tem plano há mais de 6 meses?',
+    adesao: 'Tem plano de saúde há mais de 6 meses?'
+  };
+
+  // Dynamic-field templates (returned as HTML strings)
+  const FIELDS_BY_PLAN = {
+    senior: () => `
+      <div class="field">
+        <label for="lf-idade">Idade</label>
+        <select id="lf-idade" name="idade" required>
+          <option value="" disabled selected>Selecione sua faixa etária</option>
+          ${FAIXAS_IDADE.map(f => `<option value="${f}">${f} anos</option>`).join('')}
+        </select>
+        <span class="field-error">Selecione sua faixa etária.</span>
+      </div>
+      <div class="field">
+        <label for="lf-cidade">Cidade</label>
+        <select id="lf-cidade" name="cidade" required>
+          <option value="" disabled selected>Selecione sua cidade</option>
+          ${CIDADES.map(c => `<option value="${c}">${c}</option>`).join('')}
+        </select>
+        <span class="field-error">Selecione sua cidade.</span>
+      </div>`,
+    pme: () => `
+      <div class="field">
+        <label for="lf-vidas">Quantas vidas?</label>
+        <select id="lf-vidas" name="vidas" required>
+          <option value="" disabled selected>Tamanho do grupo</option>
+          ${VIDAS.map(v => `<option value="${v}">${v} vidas</option>`).join('')}
+        </select>
+        <span class="field-error">Selecione o tamanho do grupo.</span>
+      </div>`,
+    adesao: () => `
+      <div class="field">
+        <label for="lf-idade">Idade</label>
+        <select id="lf-idade" name="idade" required>
+          <option value="" disabled selected>Selecione sua faixa etária</option>
+          ${FAIXAS_IDADE.map(f => `<option value="${f}">${f} anos</option>`).join('')}
+        </select>
+        <span class="field-error">Selecione sua faixa etária.</span>
+      </div>
+      <div class="field">
+        <label for="lf-formacao">Você tem formação superior? Se sim, qual?</label>
+        <input id="lf-formacao" name="formacao" type="text" placeholder="ex: Direito, Engenharia, Administração... ou deixe em branco">
+      </div>`
+  };
+
+  // WhatsApp message templates
+  const WPP_TEMPLATES = {
+    senior: d => `Olá! Vim pelo site da Blue Med e tenho interesse no PLANO SÊNIOR.
+
+📋 Meus dados:
+• Nome: ${d.nome}
+• Idade: ${d.idade}
+• Cidade: ${d.cidade}
+• Tenho plano há +6 meses: ${d.tem_plano}
+
+Pode me enviar uma cotação personalizada?`,
+    pme: d => `Olá! Vim pelo site da Blue Med e tenho interesse no PLANO PME.
+
+🏢 Meus dados:
+• Nome: ${d.nome}
+• Quantas vidas: ${d.vidas}
+• Empresa tem plano há +6 meses: ${d.tem_plano}
+
+Pode me enviar uma cotação?`,
+    adesao: d => `Olá! Vim pelo site da Blue Med e tenho interesse no PLANO POR ADESÃO.
+
+👤 Meus dados:
+• Nome: ${d.nome}
+• Idade: ${d.idade}
+• Formação superior: ${d.formacao || '(não informado)'}
+• Tenho plano há +6 meses: ${d.tem_plano}
+
+Pode me enviar uma cotação?`
+  };
+
+  const modal = document.getElementById('planModal');
+  const chip = document.getElementById('modalChip');
+  const dynamicFields = document.getElementById('dynamicFields');
+  const form = document.getElementById('planForm');
+  const radioLabel = document.getElementById('radioPlanoLabel');
+  let currentPlan = 'senior';
+
+  // ----- Open / close -----
+  window.openPlanModal = function(plan){
+    currentPlan = plan || 'senior';
+    chip.textContent = PLAN_LABELS[currentPlan];
+    radioLabel.textContent = PLAN_RADIO_LABEL[currentPlan];
+    dynamicFields.innerHTML = FIELDS_BY_PLAN[currentPlan]();
+    form.reset();
+    modal.removeAttribute('data-state');
+    clearErrors();
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // mark card as pressed
+    document.querySelectorAll('.plan-card').forEach(c => c.setAttribute('aria-pressed', c.dataset.plan === currentPlan ? 'true' : 'false'));
+    setTimeout(() => {
+      const firstInput = form.querySelector('input,select');
+      if (firstInput) firstInput.focus();
+    }, 320);
+  };
+
+  function closeModal(){
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.querySelectorAll('.plan-card').forEach(c => c.setAttribute('aria-pressed', 'false'));
+  }
+
+  modal.addEventListener('click', e => {
+    if (e.target.matches('[data-close]')) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+  });
+
+  // ----- Card clicks -----
+  document.querySelectorAll('.plan-card').forEach(card => {
+    card.addEventListener('click', () => openPlanModal(card.dataset.plan));
+  });
+
+  // ----- WhatsApp mask for tel input -----
+  document.getElementById('lf-whatsapp').addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    e.target.value = v;
+  });
+
+  // ----- Validation -----
+  function clearErrors(){
+    form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+  }
+
+  function validate(){
+    clearErrors();
+    let ok = true;
+
+    // text/select required
+    form.querySelectorAll('input[required], select[required]').forEach(input => {
+      if (input.type === 'radio') return;
+      if (input.type === 'checkbox') return;
+      const v = (input.value || '').trim();
+      if (!v) {
+        input.closest('.field').classList.add('invalid');
+        ok = false;
+      } else if (input.id === 'lf-whatsapp') {
+        const digits = v.replace(/\D/g, '');
+        if (digits.length < 10) {
+          input.closest('.field').classList.add('invalid');
+          ok = false;
+        }
+      }
+    });
+
+    // radio group
+    const radioGroup = form.querySelector('input[name="tem_plano"]:checked');
+    if (!radioGroup) {
+      document.getElementById('radioPlano').classList.add('invalid');
+      ok = false;
+    }
+
+    // LGPD
+    const lgpd = form.querySelector('input[name="lgpd"]');
+    if (!lgpd.checked) {
+      document.getElementById('lgpdCheck').classList.add('invalid');
+      ok = false;
+    }
+
+    return ok;
+  }
+
+  // Re-validate as user fixes fields
+  form.addEventListener('input', e => {
+    const field = e.target.closest('.field');
+    if (field) field.classList.remove('invalid');
+    if (e.target.name === 'tem_plano') document.getElementById('radioPlano').classList.remove('invalid');
+    if (e.target.name === 'lgpd') document.getElementById('lgpdCheck').classList.remove('invalid');
+  });
+
+  // ----- Submit -----
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.plan = currentPlan;
+
+    // Simulated POST /api/lead (backend hookup pendente)
+    console.log('[LEAD]', data);
+
+    // Build WhatsApp deep-link
+    const msg = WPP_TEMPLATES[currentPlan](data);
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+
+    // Show success state
+    modal.setAttribute('data-state', 'success');
+
+    // Open WhatsApp after a brief beat so user sees the "Obrigado"
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener');
+    }, 600);
+
+    // Auto-close
+    setTimeout(closeModal, 3000);
+  });
+})();
+</script>
+
+<script>
+  // Scroll reveal animation — runs at end of body so it sees every .reveal element
+  (function(){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, {threshold: .15});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>

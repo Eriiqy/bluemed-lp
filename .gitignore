@@ -1,0 +1,15 @@
+.DS_Store
+.vercel/
+node_modules/
+
+# Debug screenshots from development
+debug-*.png
+*-after.png
+*-after-*.png
+*.playwright-mcp/
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+Thumbs.db
