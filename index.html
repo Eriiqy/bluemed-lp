@@ -846,23 +846,123 @@
     .fab:hover .fab-label{max-width:0;opacity:0}
   }
 
+  /* ============ STICKY BOTTOM CTA (mobile) ============ */
+  .mobile-cta-bar{
+    display:none;
+    position:fixed;left:14px;right:14px;bottom:12px;z-index:200;
+    align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);
+    color:#fff;font-family:var(--font);font-size:16px;font-weight:800;
+    padding:16px 22px;border-radius:14px;text-decoration:none;
+    box-shadow:0 0 20px rgba(37,211,102,.5),0 8px 24px rgba(0,0,0,.22);
+    animation:cta-pulse 2.6s ease-out infinite;
+  }
+  .mobile-cta-bar svg{width:24px;height:24px;flex-shrink:0;fill:#fff}
+  @keyframes cta-pulse{
+    0%,100%{box-shadow:0 0 20px rgba(37,211,102,.5),0 8px 24px rgba(0,0,0,.22)}
+    50%{box-shadow:0 0 28px rgba(37,211,102,.7),0 10px 28px rgba(0,0,0,.28)}
+  }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width:880px){
-    .head-inner{flex-direction:column;align-items:flex-start;gap:12px}
-    .hero{padding:32px 0 0}
-    .hero-grid{grid-template-columns:1fr;gap:32px;padding:0 24px}
-    .hero h1{font-size:32px}
+    .head-inner{flex-direction:column;align-items:center;gap:12px}
+    .hero{padding:24px 0 0}
+    .hero-grid{grid-template-columns:1fr;gap:24px;padding:0 20px}
+    .hero h1{font-size:28px;line-height:1.2;text-align:center;letter-spacing:-.6px}
+    .hero .lead{font-size:15px;text-align:center;line-height:1.55}
+    .pill-row{max-width:none;margin-top:20px}
     .form-card{grid-template-columns:1fr;gap:20px;padding:24px;border-radius:14px}
     .form-card .pitch .arrow{display:none}
     .form-fields{grid-template-columns:1fr}
     .form-card .btn-yellow{width:100%}
-    .stats-inner{grid-template-columns:1fr;gap:24px}
-    .stat-div{display:none}
-    .feat{flex:0 0 auto}
-    .net-row-inner{grid-template-columns:1fr;gap:20px}
+    .stats{height:auto;padding:24px 0}
+    .stats-pair{padding:0 20px}
+    .stat .num{font-size:36px}
+    .stat .lbl{font-size:12px;line-height:1.3}
+
+    /* Plan picker */
+    .plan-picker{padding:48px 0}
+    .plan-picker-head h2{font-size:26px}
+    .plan-picker-head{padding:0 20px}
+
+    /* About / features carousel — 1 card por viewport */
+    .about{padding:48px 0}
+    .intro{padding:0 20px}
+    .feat-grid{padding:0 20px}
+    .feat-track{grid-auto-columns:calc(100% - 16px);gap:16px}
+    .feat{min-height:auto;padding:28px 24px}
+    .feat p{font-size:14px}
+
+    /* Section title antes da rede */
+    .sec-title{padding:48px 20px 24px}
+    .sec-title h2,.faq-head h2{font-size:24px;line-height:1.25}
+    .title-inline{flex-direction:column;align-items:flex-start;gap:12px}
+
+    /* Network rows */
+    .net-row{padding:32px 0}
+    .net-row-inner{grid-template-columns:1fr;gap:20px;padding:0 20px}
     .net-row .items{grid-template-columns:1fr}
-    .sec-title h2,.faq-head h2{font-size:24px}
-    .container,.form-bar,.stats,.faq{padding-left:0;padding-right:0}
+    .net-photo .photo{aspect-ratio:16/9}
+
+    /* City explorer */
+    .city-explorer{padding:48px 0}
+    .city-inner{padding:0 20px}
+    .city-explorer h2{font-size:24px}
+    .city-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px;scrollbar-width:none}
+    .city-tabs::-webkit-scrollbar{display:none}
+    .city-tab{flex-shrink:0}
+    .city-content{padding:24px 20px}
+    .city-grid{grid-template-columns:1fr;gap:24px}
+
+    /* Lab section (Cellula Mater) */
+    .lab-row{padding:48px 0}
+    .lab-inner{grid-template-columns:1fr;gap:32px;padding:0 20px}
+    .lab-row h3{font-size:22px;line-height:1.25}
+    .lab-row .lab-lead{font-size:15px}
+    .lab-feat-btns{flex-wrap:wrap}
+    .lab-cta{max-width:none}
+    .hex-stage{display:none}
+
+    /* Video section */
+    .video-section{padding:48px 0}
+    .video-inner{padding:0 20px}
+    .video-head h2{font-size:24px;line-height:1.25}
+    .video-frame{border-radius:14px}
+
+    /* FAQ — stack 1 col */
+    .faq{padding:48px 0}
+    .faq-inner{grid-template-columns:1fr;gap:24px;padding:0 20px}
+    .faq-head{text-align:center}
+    .faq-head h2{font-size:24px}
+    .faq-head p{max-width:none}
+    details.q summary{padding:18px 20px;font-size:15px}
+    details.q .a-wrap{padding:14px 20px 18px}
+    details.q .a{font-size:14px}
+
+    /* FAQ CTA */
+    .faq-cta .btn-yellow{padding:16px 28px;font-size:14px}
+
+    /* Footer */
+    footer{padding:48px 0 120px}
+    .foot-inner{padding:0 20px}
+    .foot-cols{grid-template-columns:1fr 1fr;gap:24px}
+
+    /* Modal — usa fullscreen mode em mobile (já existe) */
+
+    /* Sticky CTA + FAB swap */
+    .mobile-cta-bar{display:flex}
+    .fab-stack{display:none}
+
+    /* Page body padding to not cover content with sticky bar */
+    body{padding-bottom:84px}
+  }
+
+  @media (max-width:560px){
+    .hero h1{font-size:26px}
+    .plan-picker-head h2,.sec-title h2,.faq-head h2,.lab-row h3,.video-head h2,.city-explorer h2{font-size:22px}
+    .feat-track{grid-auto-columns:calc(100% - 8px)}
+    .city-tabs{gap:8px}
+    .city-tab{padding:8px 14px;font-size:13px}
   }
 </style>
 </head>
@@ -1868,6 +1968,12 @@
   </div>
 
   <!-- floating action buttons -->
+  <!-- Sticky bottom CTA bar (mobile only) -->
+  <a href="https://wa.me/5513997201460?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20do%20Plano%20S%C3%AAnior%20Blue%20Med" class="mobile-cta-bar" target="_blank" rel="noopener" aria-label="Falar com corretor no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16.003 0C7.171 0 0 7.17 0 15.997c0 2.823.737 5.584 2.137 8.014L0 32l8.156-2.139a15.96 15.96 0 0 0 7.847 2.001H16c8.83 0 15.997-7.17 15.997-15.997C32 7.17 24.83 0 16.003 0zM16 29.336h-.003a13.3 13.3 0 0 1-6.776-1.856l-.486-.288-5.04 1.323 1.34-4.92-.317-.504a13.318 13.318 0 0 1-2.04-7.094c0-7.348 5.97-13.32 13.32-13.32 3.557 0 6.9 1.388 9.413 3.906a13.235 13.235 0 0 1 3.906 9.418c0 7.348-5.97 13.336-13.317 13.336zm7.305-9.985c-.4-.2-2.36-1.165-2.726-1.298-.366-.133-.633-.2-.9.2-.265.4-1.033 1.298-1.265 1.564-.233.266-.466.3-.866.1s-1.685-.622-3.21-1.98c-1.186-1.057-1.987-2.364-2.22-2.764-.232-.4-.025-.617.175-.816.18-.18.4-.467.6-.7.2-.233.266-.4.4-.665.133-.265.066-.5-.034-.7-.1-.2-.9-2.166-1.232-2.966-.325-.78-.654-.674-.9-.687-.232-.012-.5-.014-.766-.014a1.47 1.47 0 0 0-1.066.5c-.366.4-1.4 1.367-1.4 3.332s1.433 3.864 1.633 4.13c.2.266 2.82 4.31 6.832 6.046.954.412 1.7.658 2.28.843.957.305 1.83.262 2.518.16.768-.115 2.36-.965 2.694-1.898.333-.933.333-1.733.232-1.898-.1-.166-.366-.265-.766-.465z"/></svg>
+    <span>Falar com corretor agora</span>
+  </a>
+
   <div class="fab-stack">
     <a href="https://wa.me/5513997201460" class="fab wa" aria-label="Falar no WhatsApp" title="Falar no WhatsApp" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16.003 0C7.171 0 0 7.17 0 15.997c0 2.823.737 5.584 2.137 8.014L0 32l8.156-2.139a15.96 15.96 0 0 0 7.847 2.001H16c8.83 0 15.997-7.17 15.997-15.997C32 7.17 24.83 0 16.003 0zM16 29.336h-.003a13.3 13.3 0 0 1-6.776-1.856l-.486-.288-5.04 1.323 1.34-4.92-.317-.504a13.318 13.318 0 0 1-2.04-7.094c0-7.348 5.97-13.32 13.32-13.32 3.557 0 6.9 1.388 9.413 3.906a13.235 13.235 0 0 1 3.906 9.418c0 7.348-5.97 13.336-13.317 13.336zm7.305-9.985c-.4-.2-2.36-1.165-2.726-1.298-.366-.133-.633-.2-.9.2-.265.4-1.033 1.298-1.265 1.564-.233.266-.466.3-.866.1s-1.685-.622-3.21-1.98c-1.186-1.057-1.987-2.364-2.22-2.764-.232-.4-.025-.617.175-.816.18-.18.4-.467.6-.7.2-.233.266-.4.4-.665.133-.265.066-.5-.034-.7-.1-.2-.9-2.166-1.232-2.966-.325-.78-.654-.674-.9-.687-.232-.012-.5-.014-.766-.014a1.47 1.47 0 0 0-1.066.5c-.366.4-1.4 1.367-1.4 3.332s1.433 3.864 1.633 4.13c.2.266 2.82 4.31 6.832 6.046.954.412 1.7.658 2.28.843.957.305 1.83.262 2.518.16.768-.115 2.36-.965 2.694-1.898.333-.933.333-1.733.232-1.898-.1-.166-.366-.265-.766-.465z"/></svg>
