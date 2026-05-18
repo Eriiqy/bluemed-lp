@@ -511,7 +511,7 @@
   .city-tabs{display:flex;flex-wrap:wrap;gap:var(--tight-gap);justify-content:center;margin-bottom:var(--block-gap)}
   .city-tab{padding:11px 22px;border:1.5px solid #d8e0ea;border-radius:999px;background:#fff;font-family:var(--font);font-weight:600;font-size:14px;color:var(--text-2);cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);white-space:nowrap}
   .city-tab:hover{border-color:var(--primary);color:var(--primary)}
-  .city-tab.active{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);border-color:transparent;color:#fff;font-weight:700;box-shadow:0 8px 24px rgba(10,24,64,.28)}
+  .city-tab.active{background:linear-gradient(165deg,#1b2c75 0%,#0a1840 100%);border-color:transparent;color:#fff;font-weight:700}
   .city-panel{background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(15,23,42,.06),0 0 0 1px rgba(21,35,97,.05);padding:var(--s-7) var(--s-7);display:none}
   .city-panel.active{display:block;animation:cityFadeIn .7s cubic-bezier(.4,0,.2,1) both}
   @keyframes cityFadeIn{
@@ -811,11 +811,6 @@
   .foot-col ul a{font-size:13px;color:var(--text-2);text-decoration:underline;text-decoration-color:#cdd5e0;text-underline-offset:3px;line-height:1.4}
   .foot-col ul a:hover{color:var(--primary);text-decoration-color:var(--primary)}
   .foot-divider{border-top:1px solid #d8dde8;margin:var(--s-2) 0 var(--block-gap)}
-  .demo-block{margin-bottom:var(--title-gap)}
-  .demo-block h5{font-size:14px;font-weight:800;color:var(--text);margin-bottom:var(--inline-gap)}
-  .demo-years{display:flex;gap:var(--s-5);flex-wrap:wrap;align-items:center}
-  .demo-years a{font-size:13px;color:var(--text-2);text-decoration:underline;text-decoration-color:#cdd5e0;text-underline-offset:3px}
-  .demo-years a:hover{color:var(--primary)}
   .demo-years .muted{font-size:13px;color:var(--text-3)}
   .foot-bottom{display:grid;grid-template-columns:1.5fr 1fr auto;gap:var(--s-5);align-items:center;padding-top:var(--s-5);border-top:1px solid #d8dde8}
   .foot-bottom .legal{font-size:12px;color:var(--text-3);line-height:1.6}
@@ -846,6 +841,117 @@
     .fab:hover .fab-label{max-width:0;opacity:0}
   }
 
+  /* ============ LOGO TAGLINE (mobile only) ============ */
+  .logo-tagline{display:none}
+
+  /* ============ HERO OVERLAY (mobile only) ============ */
+  .hero-overlay{display:none}
+
+  /* ============ QUICK MENU (mobile only) ============ */
+  .quick-menu{display:none}
+  @media (max-width:880px){
+    /* Logo + tagline */
+    .logo{flex-direction:column;align-items:center;gap:6px}
+    .logo-tagline{
+      display:block;font-size:10px;font-weight:700;
+      letter-spacing:1.4px;text-transform:uppercase;
+      background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
+      color:transparent;-webkit-text-fill-color:transparent;
+      text-align:center;
+    }
+
+    /* Hero image overlay (welcome + CTA) */
+    .hero-img{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 16px 36px rgba(10,24,64,.18)}
+    .hero-img .photo{aspect-ratio:4/3;border-radius:0;box-shadow:none}
+    .hero-img .photo::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(10,24,64,.05) 0%,rgba(10,24,64,.55) 60%,rgba(10,24,64,.85) 100%);
+      pointer-events:none;
+    }
+    .hero-overlay{
+      display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+      position:absolute;left:20px;right:20px;bottom:20px;z-index:2;
+      color:#fff;
+    }
+    .hero-eyebrow{
+      display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.4px;
+      text-transform:uppercase;padding:5px 12px;border-radius:999px;
+      background:var(--gold-grad);color:#fff;
+      box-shadow:0 4px 12px rgba(163,119,20,.35);
+    }
+    .hero-welcome{
+      font-family:var(--font);font-size:24px;font-weight:800;
+      line-height:1.1;letter-spacing:-.5px;margin:4px 0 0;
+      color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35);
+    }
+    .hero-welcome-accent{
+      background:linear-gradient(135deg,#7BC4F5 0%,#0099D8 60%,#FFFFFF 100%);
+      -webkit-background-clip:text;background-clip:text;
+      color:transparent;-webkit-text-fill-color:transparent;
+    }
+    .hero-welcome-sub{
+      font-size:14px;color:rgba(255,255,255,.92);line-height:1.4;
+      margin:2px 0 6px;text-shadow:0 1px 6px rgba(0,0,0,.4);
+      max-width:88%;
+    }
+    .hero-overlay-cta{
+      padding:13px 22px;font-size:13px;
+      margin-top:4px;align-self:flex-start;
+    }
+    .hero-loc{display:none}
+
+    /* Quick menu — fundo navy-tint pra dar contraste com a página */
+    .quick-menu{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:0;padding:28px 10px 32px;
+      background:linear-gradient(180deg,#F4F7FD 0%,#E8F0FA 100%);
+      border-top:1px solid rgba(21,35,97,.08);
+      border-bottom:1px solid rgba(21,35,97,.08);
+      margin-top:28px;
+      position:relative;
+    }
+    .quick-menu::before{
+      content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+      width:48px;height:3px;border-radius:999px;
+      background:var(--gold-grad);
+    }
+    .qm-tile{
+      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      gap:10px;padding:18px 6px;
+      color:var(--primary);text-decoration:none;
+      font-family:var(--font);font-size:10.5px;font-weight:800;
+      text-transform:uppercase;letter-spacing:.5px;
+      line-height:1.25;text-align:center;
+      border-radius:12px;
+      transition:background .2s ease,transform .15s ease,color .2s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .qm-tile:active{transform:scale(.94);background:rgba(21,35,97,.06)}
+    .qm-tile .qm-ico{
+      width:56px;height:56px;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--accent);
+      transition:color .25s ease,transform .25s ease;
+      position:relative;
+    }
+    .qm-tile .qm-ico svg{width:44px;height:44px}
+    .qm-tile .qm-label{display:block;max-width:100%}
+    /* Featured tile = SEJA CLIENTE — destaque dourado */
+    .qm-tile.qm-featured .qm-ico{
+      background:var(--gold-grad);
+      width:64px;height:64px;border-radius:16px;
+      color:#fff;
+      box-shadow:0 8px 20px rgba(163,119,20,.35);
+    }
+    .qm-tile.qm-featured .qm-ico svg{width:34px;height:34px}
+    .qm-tile.qm-featured .qm-label{
+      background:var(--gold-grad);
+      -webkit-background-clip:text;background-clip:text;
+      color:transparent;-webkit-text-fill-color:transparent;
+    }
+    .qm-tile:hover .qm-ico{transform:translateY(-2px)}
+  }
+
   /* ============ STICKY BOTTOM CTA (mobile) ============ */
   .mobile-cta-bar{
     display:none;
@@ -866,19 +972,21 @@
   /* ============ RESPONSIVE ============ */
   @media (max-width:880px){
     .head-inner{flex-direction:column;align-items:center;gap:12px}
-    .hero{padding:24px 0 0}
-    .hero-grid{grid-template-columns:1fr;gap:24px;padding:0 20px}
-    .hero h1{font-size:28px;line-height:1.2;text-align:center;letter-spacing:-.6px}
-    .hero .lead{font-size:15px;text-align:center;line-height:1.55}
-    .pill-row{max-width:none;margin-top:20px}
+    .hero{padding:16px 0 0}
+    .hero-grid{grid-template-columns:1fr;gap:0;padding:0 20px}
+    /* Mobile: hide text column, keep only logo > image > quick-menu sequence */
+    .hero-grid > div:first-child{display:none}
     .form-card{grid-template-columns:1fr;gap:20px;padding:24px;border-radius:14px}
     .form-card .pitch .arrow{display:none}
     .form-fields{grid-template-columns:1fr}
     .form-card .btn-yellow{width:100%}
-    .stats{height:auto;padding:24px 0}
-    .stats-pair{padding:0 20px}
-    .stat .num{font-size:36px}
-    .stat .lbl{font-size:12px;line-height:1.3}
+    /* Stats band mobile: keep rotation, fit 2 stats in 1 line each */
+    .stats{height:120px;padding:0}
+    .stats-pair{gap:0;padding:0 12px}
+    .stat{flex:1;padding:18px 8px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .stat .num{font-size:30px;letter-spacing:-1px}
+    .stat .lbl{font-size:11.5px;line-height:1.3;margin-top:6px;max-width:140px;letter-spacing:0}
+    .stat-div{height:48px;margin:0 4px}
 
     /* Plan picker */
     .plan-picker{padding:48px 0}
@@ -958,7 +1066,6 @@
   }
 
   @media (max-width:560px){
-    .hero h1{font-size:26px}
     .plan-picker-head h2,.sec-title h2,.faq-head h2,.lab-row h3,.video-head h2,.city-explorer h2{font-size:22px}
     .feat-track{grid-auto-columns:calc(100% - 8px)}
     .city-tabs{gap:8px}
@@ -973,6 +1080,7 @@
   <div class="head-inner">
     <div class="logo">
       <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
+      <span class="logo-tagline">Sempre perto, cuidando da Baixada Santista</span>
     </div>
 
   </div>
@@ -1005,6 +1113,12 @@
     </div>
     <div class="hero-img">
       <div class="photo"><img src="assets/hero-photo.png" alt="Casal sorrindo na Baixada Santista"></div>
+      <div class="hero-overlay">
+        <span class="hero-eyebrow">96 anos na Baixada Santista</span>
+        <h2 class="hero-welcome">Bem-vindo à<br><span class="hero-welcome-accent">Blue Med Saúde</span></h2>
+        <p class="hero-welcome-sub">A rede que você já conhece, num plano só.</p>
+        <a href="#planos" class="hero-overlay-cta btn-yellow" onclick="openPlanModal('senior');return false;">Quero ser cliente</a>
+      </div>
       <div class="hero-loc">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <span>Santos, SP</span>
@@ -1012,6 +1126,46 @@
     </div>
   </div>
 </section>
+
+<!-- ============ QUICK MENU (mobile only) ============ -->
+<nav class="quick-menu" aria-label="Atalhos">
+  <a class="qm-tile" href="#video-bluemed" onclick="document.querySelector('.video-section')?.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 27V11l9-5 9 5v16"/><path d="M4 27h24"/><path d="M16 15v6M13 18h6"/><path d="M11 27v-4M21 27v-4"/></svg></span>
+    <span class="qm-label">Sobre a Blue Med</span>
+  </a>
+  <a class="qm-tile" href="#planos" onclick="document.getElementById('planos')?.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="22" height="14" rx="2.5"/><rect x="7" y="11" width="22" height="14" rx="2.5"/><path d="M7 16h22"/><path d="M11 21h4"/></svg></span>
+    <span class="qm-label">Nossos Planos</span>
+  </a>
+  <a class="qm-tile" href="#diferenciais" onclick="document.querySelector('.about')?.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4l1.5 4.5L25 10l-4.5 1.5L19 16l-1.5-4.5L13 10l4.5-1.5L19 4z"/><path d="M10 14l1.2 3.8L15 19l-3.8 1.2L10 24l-1.2-3.8L5 19l3.8-1.2L10 14z"/><path d="M22 19l.8 2.4L25 22l-2.2.6L22 25l-.8-2.4L19 22l2.2-.6L22 19z"/></svg></span>
+    <span class="qm-label">Diferenciais</span>
+  </a>
+  <a class="qm-tile" href="https://wa.me/5513991039442?text=Ol%C3%A1!%20Posso%20receber%20a%20tabela%20de%20pre%C3%A7os%20por%20faixa%20et%C3%A1ria%20do%20Plano%20S%C3%AAnior%20Blue%20Med%3F" target="_blank" rel="noopener">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="8" rx="9" ry="3"/><path d="M7 8v6c0 1.66 4.03 3 9 3s9-1.34 9-3V8"/><path d="M7 14v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/><path d="M7 20v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4"/></svg></span>
+    <span class="qm-label">Tabela de Preços</span>
+  </a>
+  <a class="qm-tile qm-featured" href="#planos" onclick="openPlanModal('senior');return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27.5C12 24.5 4 19.2 4 12.5 4 8.9 6.9 6 10.5 6c2.2 0 4.2 1.1 5.5 2.8C17.3 7.1 19.3 6 21.5 6 25.1 6 28 8.9 28 12.5c0 6.7-8 12-12 15z"/></svg></span>
+    <span class="qm-label">Seja Cliente</span>
+  </a>
+  <a class="qm-tile" href="#planos" onclick="openPlanModal('pme');return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="24" height="17" rx="2.5"/><path d="M11 10V7.5A2 2 0 0 1 13 5.5h6a2 2 0 0 1 2 2V10"/><path d="M4 18h24"/><path d="M14 17v2h4v-2"/></svg></span>
+    <span class="qm-label">Estudo Empresarial</span>
+  </a>
+  <a class="qm-tile" href="#rede" onclick="document.querySelector('.city-explorer')?.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6L4 8.5v18L11 24l10 2.5L28 24V6l-7 2.5z"/><path d="M11 6v18M21 8.5v18"/><circle cx="21" cy="15" r="2.5"/></svg></span>
+    <span class="qm-label">Consulta de Rede</span>
+  </a>
+  <a class="qm-tile" href="#planos" onclick="openPlanModal('adesao');return false;">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="24" height="18" rx="2"/><path d="M8 10h10M8 14h6"/><circle cx="22" cy="17" r="3.5"/><path d="M19.5 19.5L18 27l4-2 4 2-1.5-7.5"/></svg></span>
+    <span class="qm-label">Planos de Adesão</span>
+  </a>
+  <a class="qm-tile" href="https://wa.me/5513991039442?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20consultor%20Blue%20Med." target="_blank" rel="noopener">
+    <span class="qm-ico"><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19v-3a11 11 0 0 1 22 0v3"/><rect x="3" y="18" width="6" height="9" rx="2"/><rect x="23" y="18" width="6" height="9" rx="2"/><path d="M26 27v.5a3 3 0 0 1-3 3h-4"/><circle cx="19" cy="30.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+    <span class="qm-label">Canais de Atendimento</span>
+  </a>
+</nav>
 
 <!-- ============ PLAN PICKER ============ -->
 <section class="plan-picker" id="planos">
@@ -1940,22 +2094,6 @@
 
     <div class="foot-divider"></div>
 
-    <!-- demonstrativos -->
-    <div class="demo-block">
-      <h5>Demonstrativos Financeiros</h5>
-      <div class="demo-years">
-        <a href="#">2018</a>
-        <a href="#">2019</a>
-        <a href="#">2020</a>
-        <a href="#">2021</a>
-        <a href="#">2022</a>
-        <a href="#">2023</a>
-        <a href="#">2024</a>
-        <a href="#">2025</a>
-        <span class="muted">2026 (em atualização)</span>
-      </div>
-    </div>
-
     <!-- bottom row -->
     <div class="foot-bottom">
       <div class="legal">© 2026 Blue Med Saúde · CNPJ: 62.511.019/0001-50 · Código ANS: 34.480-0</div>
@@ -1969,13 +2107,13 @@
 
   <!-- floating action buttons -->
   <!-- Sticky bottom CTA bar (mobile only) -->
-  <a href="https://wa.me/5513997201460?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20do%20Plano%20S%C3%AAnior%20Blue%20Med" class="mobile-cta-bar" target="_blank" rel="noopener" aria-label="Falar com corretor no WhatsApp">
+  <a href="https://wa.me/5513991039442?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20do%20Plano%20S%C3%AAnior%20Blue%20Med" class="mobile-cta-bar" target="_blank" rel="noopener" aria-label="Falar com corretor no WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16.003 0C7.171 0 0 7.17 0 15.997c0 2.823.737 5.584 2.137 8.014L0 32l8.156-2.139a15.96 15.96 0 0 0 7.847 2.001H16c8.83 0 15.997-7.17 15.997-15.997C32 7.17 24.83 0 16.003 0zM16 29.336h-.003a13.3 13.3 0 0 1-6.776-1.856l-.486-.288-5.04 1.323 1.34-4.92-.317-.504a13.318 13.318 0 0 1-2.04-7.094c0-7.348 5.97-13.32 13.32-13.32 3.557 0 6.9 1.388 9.413 3.906a13.235 13.235 0 0 1 3.906 9.418c0 7.348-5.97 13.336-13.317 13.336zm7.305-9.985c-.4-.2-2.36-1.165-2.726-1.298-.366-.133-.633-.2-.9.2-.265.4-1.033 1.298-1.265 1.564-.233.266-.466.3-.866.1s-1.685-.622-3.21-1.98c-1.186-1.057-1.987-2.364-2.22-2.764-.232-.4-.025-.617.175-.816.18-.18.4-.467.6-.7.2-.233.266-.4.4-.665.133-.265.066-.5-.034-.7-.1-.2-.9-2.166-1.232-2.966-.325-.78-.654-.674-.9-.687-.232-.012-.5-.014-.766-.014a1.47 1.47 0 0 0-1.066.5c-.366.4-1.4 1.367-1.4 3.332s1.433 3.864 1.633 4.13c.2.266 2.82 4.31 6.832 6.046.954.412 1.7.658 2.28.843.957.305 1.83.262 2.518.16.768-.115 2.36-.965 2.694-1.898.333-.933.333-1.733.232-1.898-.1-.166-.366-.265-.766-.465z"/></svg>
     <span>Falar com corretor agora</span>
   </a>
 
   <div class="fab-stack">
-    <a href="https://wa.me/5513997201460" class="fab wa" aria-label="Falar no WhatsApp" title="Falar no WhatsApp" target="_blank" rel="noopener">
+    <a href="https://wa.me/5513991039442" class="fab wa" aria-label="Falar no WhatsApp" title="Falar no WhatsApp" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16.003 0C7.171 0 0 7.17 0 15.997c0 2.823.737 5.584 2.137 8.014L0 32l8.156-2.139a15.96 15.96 0 0 0 7.847 2.001H16c8.83 0 15.997-7.17 15.997-15.997C32 7.17 24.83 0 16.003 0zM16 29.336h-.003a13.3 13.3 0 0 1-6.776-1.856l-.486-.288-5.04 1.323 1.34-4.92-.317-.504a13.318 13.318 0 0 1-2.04-7.094c0-7.348 5.97-13.32 13.32-13.32 3.557 0 6.9 1.388 9.413 3.906a13.235 13.235 0 0 1 3.906 9.418c0 7.348-5.97 13.336-13.317 13.336zm7.305-9.985c-.4-.2-2.36-1.165-2.726-1.298-.366-.133-.633-.2-.9.2-.265.4-1.033 1.298-1.265 1.564-.233.266-.466.3-.866.1s-1.685-.622-3.21-1.98c-1.186-1.057-1.987-2.364-2.22-2.764-.232-.4-.025-.617.175-.816.18-.18.4-.467.6-.7.2-.233.266-.4.4-.665.133-.265.066-.5-.034-.7-.1-.2-.9-2.166-1.232-2.966-.325-.78-.654-.674-.9-.687-.232-.012-.5-.014-.766-.014a1.47 1.47 0 0 0-1.066.5c-.366.4-1.4 1.367-1.4 3.332s1.433 3.864 1.633 4.13c.2.266 2.82 4.31 6.832 6.046.954.412 1.7.658 2.28.843.957.305 1.83.262 2.518.16.768-.115 2.36-.965 2.694-1.898.333-.933.333-1.733.232-1.898-.1-.166-.366-.265-.766-.465z"/></svg>
       <span class="fab-label">Fale com a gente</span>
     </a>
@@ -2042,7 +2180,7 @@
   // ============================================================
   // PLAN PICKER + LEAD MODAL
   // ============================================================
-  const WHATSAPP_PHONE = '55139XXXXXXXX'; // placeholder — substituir pelo número real
+  const WHATSAPP_PHONE = '5513991039442';
   const CIDADES = ['Santos','Guarujá','São Vicente','Praia Grande','Cubatão','Bertioga','Mongaguá','Itanhaém','Peruíbe'];
   const FAIXAS_IDADE = ['44–48','49–53','54–58','59–63','64+'];
   const VIDAS = ['2 a 5','6 a 29','30 a 99','100 ou mais'];
