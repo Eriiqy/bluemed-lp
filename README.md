@@ -2,6 +2,8 @@
 
 Landing page estática do Plano Sênior Blue Med Saúde para a Baixada Santista.
 
+> **Trabalhando neste repo com Claude?** Leia [`CLAUDE.md`](./CLAUDE.md) primeiro — tem o briefing completo (stack, deploy, pixels, domínio).
+
 ## Stack
 HTML/CSS/JS puro, single-file (`index.html`). Sem build, sem dependências.
 

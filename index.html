@@ -1072,6 +1072,20 @@
     .city-tab{padding:8px 14px;font-size:13px}
   }
 </style>
+
+<!-- ============================================================
+     PARTNER: PIXELS / ANALYTICS GO HERE
+     ------------------------------------------------------------
+     Cole abaixo, nesta ordem:
+       1) Meta Pixel base code  (https://business.facebook.com/events_manager)
+       2) GA4 gtag.js           (https://analytics.google.com)
+       3) Google Ads gtag       (https://ads.google.com — Ferramentas > Conversões)
+     Eventos de conversão (Lead) já estão wired:
+       - Cliques em wa.me/* (ver função `trackWhatsAppLead` adicionada no fim do <body>)
+       - Submit do formulário modal (ver bloco "Submit" do planForm)
+     Veja CLAUDE.md para o passo-a-passo completo.
+     ============================================================ -->
+
 </head>
 <body>
 
@@ -2385,6 +2399,11 @@ Pode me enviar uma cotação?`
     // Simulated POST /api/lead (backend hookup pendente)
     console.log('[LEAD]', data);
 
+    // PARTNER: dispara conversão (Meta + GA4 + Google Ads) — implementação no fim do <body>
+    if (typeof window.trackWhatsAppLead === 'function') {
+      window.trackWhatsAppLead('form-submit-' + currentPlan);
+    }
+
     // Build WhatsApp deep-link
     const msg = WPP_TEMPLATES[currentPlan](data);
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
@@ -2411,6 +2430,37 @@ Pode me enviar uma cotação?`
     }, {threshold: .15});
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   })();
+</script>
+
+<!-- ============================================================
+     PARTNER: CONVERSION TRACKING — chamado em TODO clique em wa.me/*
+     e expõe window.trackWhatsAppLead() pro form submit (já invocado).
+     Preencher os disparos comentados após colar os pixels no <head>.
+     ============================================================ -->
+<script>
+  window.trackWhatsAppLead = function(source){
+    source = source || 'unknown';
+    try { console.log('[LEAD]', source); } catch(e){}
+
+    // --- Meta Pixel ---
+    // if (typeof fbq === 'function') fbq('track', 'Lead', { source: source });
+
+    // --- GA4 ---
+    // if (typeof gtag === 'function') gtag('event', 'generate_lead', { source: source });
+
+    // --- Google Ads Conversion ---
+    // if (typeof gtag === 'function') gtag('event', 'conversion', {
+    //   send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL'
+    // });
+  };
+
+  // Delegação: pega clique em qualquer <a href*="wa.me"> sem precisar editar os links
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    const label = a.getAttribute('aria-label') || a.textContent.trim().slice(0,40) || 'whatsapp-link';
+    window.trackWhatsAppLead(label);
+  }, true);
 </script>
 
 </body>
