@@ -1149,8 +1149,22 @@
     .mob-parceira-caption strong{font-size:13px;font-weight:800;color:#333;display:block}
     .mob-parceira-caption small{font-size:11px;color:#777}
 
-    .mob-map{flex:1;min-height:400px}
-    .mob-map iframe{width:100%;height:100%;min-height:400px;border:none;display:block}
+    .mob-city-tabs{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;background:#f8fafc;border-bottom:1px solid #dce6f0;scrollbar-width:none}
+    .mob-city-tabs::-webkit-scrollbar{display:none}
+    .mob-city-tab{flex-shrink:0;padding:10px 20px;border:2px solid #c8d4e8;border-radius:99px;background:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#555;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+    .mob-city-tab.active{background:#152361;border-color:#152361;color:#fff}
+    .mob-city-tab:active{opacity:.65}
+    .mob-city-panel{display:none;padding:20px 20px 28px;background:#fff;flex:1}
+    .mob-city-panel.active{display:block}
+    .mob-city-name{font-size:22px;font-weight:800;color:#152361;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .mob-city-name svg{width:20px;height:20px;fill:#0099D8;flex-shrink:0}
+    .mob-city-cat{margin-bottom:22px}
+    .mob-city-cat:last-child{margin-bottom:4px}
+    .mob-city-cat h4{font-size:12px;font-weight:800;color:#0099D8;text-transform:uppercase;letter-spacing:.6px;border-bottom:2px solid #dce8f5;padding-bottom:7px;margin-bottom:10px}
+    .mob-city-cat ul{list-style:none;padding:0;margin:0}
+    .mob-city-cat li{font-size:14px;color:#253355;padding:7px 0 7px 18px;border-bottom:1px solid #f0f4f9;position:relative;line-height:1.45}
+    .mob-city-cat li::before{content:'';width:7px;height:7px;background:#0099D8;border-radius:50%;position:absolute;left:1px;top:14px}
+    .mob-city-cat li:last-child{border-bottom:none}
   }
 </style>
 
@@ -2937,15 +2951,100 @@ Pode me enviar uma cotação?`
       </button>
     </nav>
     <h2 class="mob-sec-title">Rede Credenciada</h2>
-    <div class="mob-map">
-      <iframe
-        src="https://maps.google.com/maps?q=santos+sp+hospitais+clinicas&output=embed&z=13"
-        title="Rede Credenciada Blue Med Saúde"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+
+    <div class="mob-city-tabs">
+      <button class="mob-city-tab active" data-city="santos"    onclick="mobCitySelect('santos')">Santos</button>
+      <button class="mob-city-tab"        data-city="praia-grande" onclick="mobCitySelect('praia-grande')">Praia Grande</button>
+      <button class="mob-city-tab"        data-city="guaruja"   onclick="mobCitySelect('guaruja')">Guarujá</button>
+      <button class="mob-city-tab"        data-city="sao-vicente" onclick="mobCitySelect('sao-vicente')">São Vicente</button>
+      <button class="mob-city-tab"        data-city="cubatao"   onclick="mobCitySelect('cubatao')">Cubatão</button>
+      <button class="mob-city-tab"        data-city="bertioga"  onclick="mobCitySelect('bertioga')">Bertioga</button>
+      <button class="mob-city-tab"        data-city="mongagua"  onclick="mobCitySelect('mongagua')">Mongaguá</button>
+      <button class="mob-city-tab"        data-city="itanhaem"  onclick="mobCitySelect('itanhaem')">Itanhaém</button>
+      <button class="mob-city-tab"        data-city="peruibe"   onclick="mobCitySelect('peruibe')">Peruíbe</button>
     </div>
+
+    <!-- SANTOS -->
+    <div class="mob-city-panel active" data-city="santos">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Santos</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (H/M/PS)</li><li>Hospital Infantil Gonzaga (PS)</li><li>Hospital Frei Galvão (PS)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Imuvi Ana Costa</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Hospital Casa de Saúde — CDA</li><li>Centro Médico Blue Med — CDA</li><li>Vila Rica Medicina Diagnóstica</li><li>Laboratório Pasteur</li><li>Cellula Mater</li></ul></div>
+    </div>
+
+    <!-- PRAIA GRANDE -->
+    <div class="mob-city-panel" data-city="praia-grande">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Praia Grande</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (H/PS)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Imuvi Costa e Silva</li><li>Imuvi Terapias Costa e Silva</li><li>Imuvi Lab Costa Silva</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Hospital Casa de Saúde — CDA</li><li>Unidade CDA Diagnóstico e Análises</li><li>Centro Médico Blue Med — CDA</li><li>Laboratório Pasteur</li><li>Cellula Mater</li></ul></div>
+    </div>
+
+    <!-- GUARUJÁ -->
+    <div class="mob-city-panel" data-city="guaruja">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Guarujá</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (H/M/PS)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>One Rad Medicina Diagnóstica</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Centro Médico Blue Med Saúde</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Hospital Casa de Saúde — CDA</li><li>Centro Médico Blue Med — CDA</li></ul></div>
+    </div>
+
+    <!-- SÃO VICENTE -->
+    <div class="mob-city-panel" data-city="sao-vicente">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>São Vicente</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Frei Galvão (PA)</li><li>Hospital Casa de Saúde (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Policlínica Ipiranga</li><li>Clínica Médica Gaddini</li><li>Centro Clínico Renascer</li><li>Imuvi Ana Costa (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>RRM Saúde</li><li>Clínica Médica Ipiranga</li><li>Cellula Mater</li><li>Laboratório Pasteur (Santos)</li></ul></div>
+    </div>
+
+    <!-- CUBATÃO -->
+    <div class="mob-city-panel" data-city="cubatao">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Cubatão</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Centro Médico Somaprev Global Físio</li><li>Centro Médico Popular</li><li>Cubatão Clínicas</li><li>Imuvi Ana Costa (Santos)</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Pasteur Análises Clínicas</li><li>Cellula Mater</li></ul></div>
+    </div>
+
+    <!-- BERTIOGA -->
+    <div class="mob-city-panel" data-city="bertioga">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Bertioga</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (Guarujá)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>One Rad Medicina Diagnóstica (Guarujá)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Clínica Hans Staden</li><li>Simbio Saúde Integrada</li><li>Centro Médico Blue Med (Guarujá)</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>JAC Laboratório</li></ul></div>
+    </div>
+
+    <!-- MONGAGUÁ -->
+    <div class="mob-city-panel" data-city="mongagua">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Mongaguá</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Nova Era Clínicas</li><li>Clínica de Fraturas</li><li>Imuvi Costa e Silva (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Laboratório Pasteur (Praia Grande)</li><li>Cellula Mater (Praia Grande)</li></ul></div>
+    </div>
+
+    <!-- ITANHAÉM -->
+    <div class="mob-city-panel" data-city="itanhaem">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Itanhaém</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Itamed</li><li>Clínica São Judas</li><li>Clínica Amor Saúde</li><li>Plenamente Psicologia</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Unidade CDA Diagnóstico e Análises (Praia Grande)</li><li>Cellula Mater (Praia Grande)</li></ul></div>
+    </div>
+
+    <!-- PERUÍBE -->
+    <div class="mob-city-panel" data-city="peruibe">
+      <p class="mob-city-name"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Peruíbe</p>
+      <div class="mob-city-cat"><h4>Hospitais</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Diagnóstico por Imagem</h4><ul><li>Hospital Casa de Saúde (Praia Grande)</li></ul></div>
+      <div class="mob-city-cat"><h4>Centros de Especialidades</h4><ul><li>Clínica São Pedro</li><li>Itamed (Itanhaém)</li><li>Clínica Amor Saúde (Itanhaém)</li></ul></div>
+      <div class="mob-city-cat"><h4>Exames e Análises</h4><ul><li>Laboratório RUIZ</li><li>Cellula Mater (Praia Grande)</li></ul></div>
+    </div>
+
     <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
     <footer class="mob-footer">
       <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
@@ -2973,6 +3072,16 @@ Pode me enviar uma cotação?`
     target.classList.add('mob-active');
     window.scrollTo(0, 0);
   })();
+
+  function mobCitySelect(city) {
+    document.querySelectorAll('#mob-credenciada .mob-city-tab').forEach(function(t) {
+      t.classList.toggle('active', t.dataset.city === city);
+    });
+    document.querySelectorAll('#mob-credenciada .mob-city-panel').forEach(function(p) {
+      p.classList.toggle('active', p.dataset.city === city);
+    });
+    window.scrollTo(0, 0);
+  }
 
   function mobEnviarTabela() {
     var nome = document.getElementById('mob-tab-nome').value.trim();
