@@ -1082,16 +1082,13 @@
     body{padding:0!important;margin:0;background:#f0f2f5}
     #mobile-app{display:block;min-height:100vh;font-family:'Montserrat',sans-serif;background:#f0f2f5;color:#333}
 
-    /* --- Header refinado --- */
-    .mob-hdr{background:#fff;padding:20px 20px 16px;text-align:center;position:relative}
-    .mob-hdr img{height:52px;width:auto;margin:0 auto 14px;display:block}
-    .mob-hdr-divider{height:1px;background:linear-gradient(to right,transparent,#c8d5e2 20%,#c8d5e2 80%,transparent);margin:0 16px}
-    /* Onda SVG de transição header → banner */
-    .mob-hdr-wave{display:block;width:100%;overflow:hidden;line-height:0;background:#fff;margin-top:-1px}
-    .mob-hdr-wave svg{display:block;width:100%;height:28px}
+    /* --- Header --- */
+    .mob-hdr{background:#fff;padding:18px 20px 14px;text-align:center;border-bottom:1px solid #dde6ef}
+    .mob-hdr img{height:48px;width:auto;margin:0 auto 4px;display:block}
+    .mob-hdr-sub{font-size:13px;font-weight:700;letter-spacing:2.5px;color:#0099D8;text-transform:uppercase}
 
     /* --- Banner --- */
-    .mob-banner{width:100%;line-height:0;border-bottom:1px solid #b8d0e4}
+    .mob-banner{width:100%;line-height:0}
     .mob-banner img{width:100%;display:block}
 
     .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;padding:14px 0 18px}
@@ -2582,13 +2579,7 @@ Pode me enviar uma cotação?`
   <div class="mob-page" id="mob-home">
     <header class="mob-hdr">
       <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
-      <div class="mob-hdr-divider"></div>
-      <div class="mob-hdr-wave">
-        <svg viewBox="0 0 375 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0 L375 0 L375 10 Q310 28 187 20 Q64 12 0 24 Z" fill="#e8f4fb"/>
-          <path d="M0 6 Q80 22 187 16 Q294 10 375 20 L375 28 L0 28 Z" fill="#d6ecf8"/>
-        </svg>
-      </div>
+      <div class="mob-hdr-sub">Saúde</div>
     </header>
     <div class="mob-banner">
       <img src="assets/banner.gif" alt="Blue Med Saúde — Planos de Saúde">
