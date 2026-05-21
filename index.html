@@ -1082,10 +1082,21 @@
     body{padding:0!important;margin:0;background:#f0f2f5}
     #mobile-app{display:block;min-height:100vh;font-family:'Montserrat',sans-serif;background:#f0f2f5;color:#333}
 
-    .mob-hdr{background:#fff;padding:14px 20px;text-align:center;border-bottom:2px solid #e0e7ef}
-    .mob-hdr img{height:55px;width:auto;margin:0 auto;display:block}
+    /* --- Header refinado --- */
+    .mob-hdr{background:#fff;padding:18px 20px 15px;text-align:center;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.06),0 4px 12px rgba(21,35,97,.05)}
+    .mob-hdr::after{content:'';position:absolute;bottom:0;left:18px;right:18px;height:1px;background:linear-gradient(to right,transparent,#c8d8e8 22%,#c8d8e8 78%,transparent)}
+    .mob-hdr img{height:50px;width:auto;margin:0 auto;display:block}
 
-    .mob-banner{width:100%;line-height:0;border-bottom:1px solid #d8e2ec}
+    /* --- Banner creative frame --- */
+    .mob-banner-frame{position:relative;background:linear-gradient(148deg,#c6e3f4 0%,#ddf0f8 44%,#eff8fd 100%);overflow:hidden}
+    /* Nature cutout top-left */
+    .mob-banner-frame::before{content:'';position:absolute;top:-12px;left:-12px;width:94px;height:94px;background:radial-gradient(ellipse at 28% 28%,rgba(88,162,48,.22) 0%,rgba(128,190,60,.14) 48%,transparent 72%),radial-gradient(ellipse at 65% 68%,rgba(195,215,72,.10) 0%,transparent 60%);border-radius:0 0 100% 0;z-index:1;pointer-events:none}
+    /* Medical cross top-right */
+    .mob-banner-frame::after{content:'';position:absolute;top:6px;right:10px;width:46px;height:46px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect x='19' y='4' width='8' height='38' rx='4' fill='%230099D8' opacity='.14'/%3E%3Crect x='4' y='19' width='38' height='8' rx='4' fill='%230099D8' opacity='.14'/%3E%3C/svg%3E") no-repeat center;z-index:1;pointer-events:none}
+    /* Coração flutuante esquerdo */
+    .mob-frame-heart{position:absolute;bottom:14px;left:8px;width:32px;height:32px;z-index:1;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 27S4 19 4 11.5a7 7 0 0 1 12-4.9A7 7 0 0 1 28 11.5C28 19 16 27 16 27z' fill='%23152361' opacity='.08'/%3E%3C/svg%3E") no-repeat center}
+    .mob-frame-top{height:24px;position:relative;z-index:2}
+    .mob-banner{position:relative;z-index:2;width:100%;line-height:0;border-bottom:1px solid #b4cfe4}
     .mob-banner img{width:100%;display:block}
 
     .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;padding:14px 0 18px}
@@ -2570,8 +2581,12 @@ Pode me enviar uma cotação?`
     <header class="mob-hdr">
       <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
     </header>
-    <div class="mob-banner">
-      <img src="assets/banner.gif" alt="Blue Med Saúde — Planos de Saúde">
+    <div class="mob-banner-frame">
+      <div class="mob-frame-top"></div>
+      <div class="mob-frame-heart"></div>
+      <div class="mob-banner">
+        <img src="assets/banner.gif" alt="Blue Med Saúde — Planos de Saúde">
+      </div>
     </div>
     <nav class="mob-grid" role="navigation" aria-label="Menu principal">
       <button class="mob-tile" onclick="mobShow('sobre-nos')" aria-label="Sobre Nós">
