@@ -1071,6 +1071,84 @@
     .city-tabs{gap:8px}
     .city-tab{padding:8px 14px;font-size:13px}
   }
+
+  /* ============================================================
+     MOBILE APP — substitui todo o conteúdo em ≤768px
+     ============================================================ */
+  #mobile-app{display:none}
+
+  @media(max-width:768px){
+    body>*:not(#mobile-app){display:none!important}
+    body{padding:0!important;margin:0;background:#f0f2f5}
+    #mobile-app{display:block;min-height:100vh;font-family:'Montserrat',sans-serif;background:#f0f2f5;color:#333}
+
+    .mob-hdr{background:#fff;padding:14px 20px;text-align:center;border-bottom:2px solid #e0e7ef}
+    .mob-hdr img{height:55px;width:auto;margin:0 auto;display:block}
+
+    .mob-banner{width:100%;line-height:0;border-bottom:1px solid #d8e2ec}
+    .mob-banner img{width:100%;display:block}
+
+    .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ddd;border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+    .mob-tile{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 6px 14px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%}
+    .mob-tile:active{background:#f0f4f8}
+    .mob-tile svg,.mob-tile .mob-icon-img{width:62px;height:62px;margin-bottom:10px;display:block}
+    .mob-tile span{font-size:10.5px;font-weight:800;letter-spacing:.4px;color:#555;text-transform:uppercase;line-height:1.3}
+    .mob-tile span.blue{color:#0099D8}
+
+    .mob-footer{background:#e5eaee;border-top:1px solid #c8d2da;padding:18px 16px;text-align:center}
+    .mob-footer-lbl{font-size:11.5px;color:#666;font-weight:600;letter-spacing:.5px;margin-bottom:10px;text-transform:uppercase}
+    .mob-footer-wa{display:inline-flex;align-items:center;gap:8px;color:#0099D8;font-size:18px;font-weight:800;text-decoration:none;margin-bottom:14px}
+    .mob-footer-wa svg{width:28px;height:28px;flex-shrink:0}
+    .mob-footer-copy{font-size:10.5px;color:#888;line-height:1.5}
+
+    .mob-page{display:none;min-height:100vh;flex-direction:column}
+    .mob-page.mob-active{display:flex}
+    #mob-home{display:flex;flex-direction:column}
+
+    .mob-inner-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ddd;border-bottom:2px solid #c8d2da}
+    .mob-inner-btn{background:#eff2f5;display:flex;flex-direction:column;align-items:center;padding:14px 8px 10px;cursor:pointer;text-align:center;border:none;outline:none;-webkit-tap-highlight-color:transparent;width:100%}
+    .mob-inner-btn:active{background:#e0e5ea}
+    .mob-inner-btn svg,.mob-inner-btn .mob-icon-img{width:46px;height:46px;margin-bottom:6px;display:block}
+    .mob-inner-btn span{font-size:9.5px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.4px;line-height:1.3}
+
+    .mob-sec-title{text-align:center;font-size:20px;font-weight:700;color:#888;padding:22px 20px 18px;border-bottom:1px solid #e8edf2;background:#fff}
+    .mob-content{padding:24px 20px;font-size:14px;line-height:1.75;color:#444;text-align:center;background:#fff;flex:1}
+    .mob-back-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px;color:#888;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.5px;background:#fff;border:none;outline:none;width:100%;border-top:1px solid #eee}
+    .mob-back-btn:active{color:#0099D8}
+
+    .mob-prod-list{display:flex;flex-direction:column;align-items:center;gap:24px;padding:28px 20px;background:#fff;flex:1}
+    .mob-prod-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .mob-prod-item svg{width:90px;height:90px}
+    .mob-prod-item span{font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.5px}
+
+    .mob-canal-list{display:flex;flex-direction:column;padding:0 20px;background:#fff;flex:1}
+    .mob-canal-item{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #eee;gap:12px}
+    .mob-canal-item:last-child{border-bottom:none}
+    .mob-canal-left{display:flex;align-items:center;gap:12px}
+    .mob-canal-left svg{width:36px;height:36px;color:#888;flex-shrink:0}
+    .mob-canal-name{font-size:12px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:.4px}
+    .mob-canal-link{color:#0099D8;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
+
+    .mob-form-wrap{padding:24px 20px;background:#fff;flex:1}
+    .mob-form-title{color:#0099D8;font-size:16px;font-weight:800;text-align:center;margin-bottom:6px}
+    .mob-form-sub{font-size:12px;color:#666;text-align:center;margin-bottom:20px}
+    .mob-field{width:100%;margin-bottom:12px}
+    .mob-field input,.mob-field select,.mob-field textarea{width:100%;border:1px solid #cdd5de;border-radius:6px;padding:12px 14px;font-family:'Montserrat',sans-serif;font-size:13px;color:#333;background:#fff;outline:none;appearance:none;-webkit-appearance:none}
+    .mob-field input::placeholder{color:#aaa}
+    .mob-form-btn{width:100%;padding:14px;background:#333;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;border:none;border-radius:6px;cursor:pointer;letter-spacing:.5px;text-transform:lowercase;margin-top:8px}
+    .mob-radio-group{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+    .mob-radio-group label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;cursor:pointer}
+
+    .mob-parceira-list{display:flex;flex-direction:column;flex:1;background:#fff}
+    .mob-parceira-item{position:relative;overflow:hidden;border-bottom:1px solid #eee}
+    .mob-parceira-item img{width:100%;display:block;height:180px;object-fit:cover}
+    .mob-parceira-caption{background:rgba(255,255,255,.92);padding:10px 16px}
+    .mob-parceira-caption strong{font-size:13px;font-weight:800;color:#333;display:block}
+    .mob-parceira-caption small{font-size:11px;color:#777}
+
+    .mob-map{flex:1;min-height:400px}
+    .mob-map iframe{width:100%;height:100%;min-height:400px;border:none;display:block}
+  }
 </style>
 
 <!-- ============================================================
@@ -2461,6 +2539,432 @@ Pode me enviar uma cotação?`
     const label = a.getAttribute('aria-label') || a.textContent.trim().slice(0,40) || 'whatsapp-link';
     window.trackWhatsAppLead(label);
   }, true);
+</script>
+
+<!-- ============================================================
+     MOBILE APP — visível apenas em ≤768px
+     ============================================================ -->
+<div id="mobile-app">
+
+  <!-- ===== HOME ===== -->
+  <div class="mob-page mob-active" id="mob-home">
+    <header class="mob-hdr">
+      <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
+    </header>
+    <div class="mob-banner">
+      <img src="assets/banner.gif" alt="Blue Med Saúde — Planos de Saúde">
+    </div>
+    <nav class="mob-grid" role="navigation" aria-label="Menu principal">
+      <button class="mob-tile" onclick="mobShow('sobre-nos')" aria-label="Sobre Nós">
+        <img class="mob-icon-img" src="assets/bluemed-logo.png" alt="Sobre Nós" style="object-fit:contain;padding:4px">
+        <span>SOBRE NÓS</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('produtos')" aria-label="Produtos">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="8" y="20" width="64" height="44" rx="8" stroke="#666" stroke-width="4"/><path d="M8 34h64" stroke="#666" stroke-width="4"/><path d="M28 52h-8M28 44h-8" stroke="#666" stroke-width="4" stroke-linecap="round"/><path d="M52 48v-8M48 44h8" stroke="#666" stroke-width="4" stroke-linecap="round"/></svg>
+        <span>PRODUTOS</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('canais')" aria-label="Canais de Atendimento">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#666" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><path d="M66 56v4a6 6 0 0 1-6 6H46" stroke="#666" stroke-width="4" stroke-linecap="round"/></svg>
+        <span>CANAIS DE ATENDIMENTO</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('tabela')" aria-label="Tabela de Preços">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#0099D8" stroke-width="4"/><path d="M26 40a14 14 0 0 1 14-14" stroke="#0099D8" stroke-width="4" stroke-linecap="round"/><path d="M54 40a14 14 0 0 1-14 14" stroke="#0099D8" stroke-width="4" stroke-linecap="round"/><path d="M22 36l4 4-4 4" stroke="#0099D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M58 44l-4-4 4-4" stroke="#0099D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 30v2M40 48v2M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
+        <span class="blue">TABELA DE PREÇOS</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('cliente')" aria-label="Quero Ser Cliente">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M28 38l8-20a6 6 0 0 1 6 6v10h14a4 4 0 0 1 4 4.4l-3 18a4 4 0 0 1-4 3.6H28V38z" stroke="#0099D8" stroke-width="4" stroke-linejoin="round"/><rect x="14" y="38" width="14" height="24" rx="4" stroke="#0099D8" stroke-width="4"/></svg>
+        <span class="blue">QUERO SER CLIENTE</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('empresarial')" aria-label="Estudo Empresarial">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M20 14h28l12 12v40a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4z" stroke="#0099D8" stroke-width="4"/><path d="M48 14v12h12" stroke="#0099D8" stroke-width="4" stroke-linejoin="round"/><path d="M40 36v2M40 54v2M40 38c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
+        <span class="blue">ESTUDO EMPRESARIAL</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('parceira')" aria-label="Rede Parceira">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="28" width="38" height="44" rx="2" stroke="#666" stroke-width="4"/><rect x="48" y="42" width="22" height="30" rx="2" stroke="#666" stroke-width="4"/><path d="M24 36v-6" stroke="#666" stroke-width="4" stroke-linecap="round"/><path d="M21 33h6" stroke="#666" stroke-width="4" stroke-linecap="round"/><rect x="20" y="56" width="8" height="16" rx="1" stroke="#666" stroke-width="3"/></svg>
+        <span>REDE PARCEIRA</span>
+      </button>
+      <button class="mob-tile" onclick="mobShow('credenciada')" aria-label="Rede Credenciada">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M40 10C28.95 10 20 18.95 20 30c0 16.25 20 40 20 40s20-23.75 20-40c0-11.05-8.95-20-20-20z" stroke="#666" stroke-width="4"/><path d="M40 24v6M40 30h0" stroke="#666" stroke-width="4" stroke-linecap="round"/><path d="M37 30h6" stroke="#666" stroke-width="4" stroke-linecap="round"/></svg>
+        <span>REDE CREDENCIADA</span>
+      </button>
+    </nav>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442" aria-label="WhatsApp Blue Med">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        (13) 99103-9442
+      </a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div><!-- /#mob-home -->
+
+
+  <!-- ===== SOBRE NÓS ===== -->
+  <div class="mob-page" id="mob-sobre-nos">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('credenciada')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M40 10C28.95 10 20 18.95 20 30c0 16.25 20 40 20 40s20-23.75 20-40c0-11.05-8.95-20-20-20z" stroke="#666" stroke-width="4"/><path d="M37 30h6M40 27v6" stroke="#666" stroke-width="4" stroke-linecap="round"/></svg>
+        <span>REDE CREDENCIADA</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('tabela')">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#666" stroke-width="4"/><path d="M40 28v4M40 48v4M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>TABELA DE PREÇOS</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Sobre Nós</h2>
+    <div class="mob-content">
+      <p>A <strong>Blue Med Saúde</strong> é uma operadora de planos de saúde com décadas de história na Baixada Santista.</p><br>
+      <p>Com registro concedido pela <strong>Agência Nacional de Saúde Suplementar (ANS)</strong>, atendemos milhares de famílias com uma ampla rede de hospitais, clínicas, consultórios e laboratórios credenciados.</p><br>
+      <p>Nossa missão é oferecer saúde de qualidade, próxima de você, nas cidades de <strong>Santos, Guarujá, Praia Grande, São Vicente, Cubatão</strong> e região.</p><br>
+      <p>Contamos com profissionais altamente qualificados e recursos modernos para garantir o melhor atendimento à sua família.</p>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== PRODUTOS ===== -->
+  <div class="mob-page" id="mob-produtos">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('tabela')">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#666" stroke-width="4"/><path d="M40 28v4M40 48v4M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>TABELA DE PREÇOS</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('cliente')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M28 38l8-20a6 6 0 0 1 6 6v10h14a4 4 0 0 1 4 4.4l-3 18a4 4 0 0 1-4 3.6H28V38z" stroke="#666" stroke-width="4" stroke-linejoin="round"/><rect x="14" y="38" width="14" height="24" rx="4" stroke="#666" stroke-width="4"/></svg>
+        <span>QUERO SER CLIENTE</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Produtos</h2>
+    <div class="mob-content" style="padding-bottom:8px">
+      <p style="color:#0099D8;font-size:15px;font-weight:800;margin-bottom:8px">Conheça a linha de Produtos Blue Med</p>
+      <p style="font-size:13px;margin-bottom:0">Desenvolvida para oferecer a melhor relação custo-benefício, com excelentes condições de preços para São Paulo e Baixada Santista.</p>
+    </div>
+    <div class="mob-prod-list">
+      <div class="mob-prod-item">
+        <svg viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="42" stroke="#999" stroke-width="3"/><path d="M30 38c0-8.28 6.72-15 15-15s15 6.72 15 15" stroke="#999" stroke-width="3"/><ellipse cx="45" cy="55" rx="18" ry="12" stroke="#999" stroke-width="3"/></svg>
+        <span>INDIVIDUAL / FAMILIAR</span>
+      </div>
+      <div class="mob-prod-item">
+        <svg viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="42" stroke="#999" stroke-width="3"/><path d="M28 42c0-9.39 7.61-17 17-17s17 7.61 17 17" stroke="#999" stroke-width="3"/><path d="M55 52l6 6" stroke="#999" stroke-width="3" stroke-linecap="round"/><ellipse cx="45" cy="57" rx="16" ry="10" stroke="#999" stroke-width="3"/></svg>
+        <span>PLANO SÊNIOR</span>
+      </div>
+      <div class="mob-prod-item">
+        <svg viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="42" stroke="#999" stroke-width="3"/><path d="M25 60c0-8.28 8.95-15 20-15s20 6.72 20 15" stroke="#999" stroke-width="3"/><circle cx="45" cy="35" r="8" stroke="#999" stroke-width="3"/><circle cx="28" cy="38" r="6" stroke="#999" stroke-width="3"/><circle cx="62" cy="38" r="6" stroke="#999" stroke-width="3"/></svg>
+        <span>PME / EMPRESARIAL</span>
+      </div>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== CANAIS DE ATENDIMENTO ===== -->
+  <div class="mob-page" id="mob-canais">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('tabela')">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#666" stroke-width="4"/><path d="M40 28v4M40 48v4M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>TABELA DE PREÇOS</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('produtos')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="8" y="20" width="64" height="44" rx="8" stroke="#666" stroke-width="4"/><path d="M8 34h64" stroke="#666" stroke-width="4"/></svg>
+        <span>PRODUTOS</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Canais de Atendimento</h2>
+    <div class="mob-canal-list">
+      <div class="mob-canal-item">
+        <div class="mob-canal-left">
+          <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#999" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#999" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#999" stroke-width="4"/></svg>
+          <span class="mob-canal-name">CENTRAL DE VENDAS</span>
+        </div>
+        <a class="mob-canal-link" href="https://wa.me/5513991039442">(13) 99103-9442</a>
+      </div>
+      <div class="mob-canal-item">
+        <div class="mob-canal-left">
+          <svg viewBox="0 0 80 80" fill="none"><path d="M28 38l8-20a6 6 0 0 1 6 6v10h14a4 4 0 0 1 4 4.4l-3 18a4 4 0 0 1-4 3.6H28V38z" stroke="#999" stroke-width="4" stroke-linejoin="round"/><rect x="14" y="38" width="14" height="24" rx="4" stroke="#999" stroke-width="4"/></svg>
+          <span class="mob-canal-name">QUERO SER CLIENTE &gt;</span>
+        </div>
+        <a class="mob-canal-link" onclick="mobShow('cliente')">&#187; Clique aqui</a>
+      </div>
+      <div class="mob-canal-item">
+        <div class="mob-canal-left">
+          <svg viewBox="0 0 80 80" fill="none"><path d="M14 46l10-8 8 6 12-16 12 10 10-8" stroke="#999" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="mob-canal-name">ESTUDO EMPRESARIAL &gt;</span>
+        </div>
+        <a class="mob-canal-link" onclick="mobShow('empresarial')">&#187; Clique aqui</a>
+      </div>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== TABELA DE PREÇOS ===== -->
+  <div class="mob-page" id="mob-tabela">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('sobre-nos')">
+        <img class="mob-icon-img" src="assets/bluemed-logo.png" alt="Sobre Nós" style="object-fit:contain;padding:4px">
+        <span>SOBRE NÓS</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('canais')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#666" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/></svg>
+        <span>CANAIS DE ATENDIMENTO</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Tabela de Preços | Pessoa Física</h2>
+    <div class="mob-form-wrap">
+      <p class="mob-form-title">acesse todas as nossas tabelas agora</p>
+      <p class="mob-form-sub">Preencha os campos abaixo e clique em "Visualizar"</p>
+      <div class="mob-field"><input type="text" placeholder="Digite seu Nome *" id="mob-tab-nome"></div>
+      <div class="mob-field"><input type="tel" placeholder="DDD + Telefone *" id="mob-tab-tel"></div>
+      <div class="mob-field"><input type="email" placeholder="Email *" id="mob-tab-email"></div>
+      <button class="mob-form-btn" onclick="mobEnviarTabela()">visualizar</button>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== QUERO SER CLIENTE ===== -->
+  <div class="mob-page" id="mob-cliente">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('parceira')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="28" width="38" height="44" rx="2" stroke="#666" stroke-width="4"/><rect x="48" y="42" width="22" height="30" rx="2" stroke="#666" stroke-width="4"/></svg>
+        <span>REDE PARCEIRA</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('canais')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#666" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/></svg>
+        <span>CANAIS DE ATENDIMENTO</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Solicite um Representante</h2>
+    <div class="mob-form-wrap">
+      <p class="mob-form-title" style="color:#555;font-size:13px;font-weight:600;margin-bottom:16px">Preencha os campos abaixo e um de nossos representantes entrará em contato para tirar suas dúvidas:</p>
+      <p style="font-size:12px;font-weight:800;color:#333;margin-bottom:12px">Selecione o produto de seu interesse:</p>
+      <div class="mob-radio-group">
+        <label><input type="radio" name="mob-plano" value="individual" checked> Plano Individual/Familiar</label>
+        <label><input type="radio" name="mob-plano" value="pme"> Plano PME/Empresarial</label>
+      </div>
+      <div class="mob-field"><input type="text" placeholder="Digite seu Nome *" id="mob-cli-nome"></div>
+      <div class="mob-field"><input type="tel" placeholder="DDD + Celular *" id="mob-cli-tel"></div>
+      <div class="mob-field"><input type="email" placeholder="Email *" id="mob-cli-email"></div>
+      <div class="mob-field"><input type="text" placeholder="Cidade" id="mob-cli-cidade"></div>
+      <div class="mob-field"><input type="number" placeholder="Nº de Beneficiários" id="mob-cli-vidas"></div>
+      <div class="mob-field"><textarea placeholder="Mensagem" rows="3" id="mob-cli-msg" style="resize:none"></textarea></div>
+      <button class="mob-form-btn" onclick="mobEnviarCliente()">enviar</button>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== ESTUDO EMPRESARIAL ===== -->
+  <div class="mob-page" id="mob-empresarial">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('sobre-nos')">
+        <img class="mob-icon-img" src="assets/bluemed-logo.png" alt="Sobre Nós" style="object-fit:contain;padding:4px">
+        <span>SOBRE NÓS</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('canais')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#666" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/></svg>
+        <span>CANAIS DE ATENDIMENTO</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Estudo Empresarial</h2>
+    <div class="mob-form-wrap">
+      <p class="mob-form-title" style="color:#555;font-size:13px;font-weight:600;margin-bottom:16px">Preencha os campos abaixo e obtenha um estudo personalizado para sua empresa:</p>
+      <div class="mob-field"><input type="text" placeholder="Nome da Empresa" id="mob-emp-empresa"></div>
+      <div class="mob-field"><input type="text" placeholder="Digite seu Nome *" id="mob-emp-nome"></div>
+      <div class="mob-field"><input type="tel" placeholder="DDD + Celular *" id="mob-emp-tel"></div>
+      <div class="mob-field"><input type="email" placeholder="Email *" id="mob-emp-email"></div>
+      <div class="mob-field"><input type="text" placeholder="Cidade" id="mob-emp-cidade"></div>
+      <div class="mob-field"><input type="text" placeholder="Ramo de Atividade" id="mob-emp-ramo"></div>
+      <div class="mob-field"><input type="number" placeholder="Nº de funcionários" id="mob-emp-func"></div>
+      <div class="mob-field"><input type="number" placeholder="Nº de dependentes" id="mob-emp-dep"></div>
+      <div class="mob-field"><textarea placeholder="Mensagem" rows="3" id="mob-emp-msg" style="resize:none"></textarea></div>
+      <button class="mob-form-btn" onclick="mobEnviarEmpresarial()">enviar</button>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== REDE PARCEIRA ===== -->
+  <div class="mob-page" id="mob-parceira">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('tabela')">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#666" stroke-width="4"/><path d="M40 28v4M40 48v4M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>TABELA DE PREÇOS</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('canais')">
+        <svg viewBox="0 0 80 80" fill="none"><path d="M14 40c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="#666" stroke-width="4"/><rect x="10" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/><rect x="58" y="38" width="12" height="18" rx="4" stroke="#666" stroke-width="4"/></svg>
+        <span>CANAIS DE ATENDIMENTO</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Rede Parceira</h2>
+    <div class="mob-parceira-list">
+      <div class="mob-parceira-item">
+        <img src="assets/hospital-casa-de-saude.png" alt="Hospital Casa de Saúde">
+        <div class="mob-parceira-caption">
+          <strong>Casa de Saúde Santos</strong>
+          <small>Rua Dr. Cláudio Luís da Costa, 50 — Santos, SP</small>
+        </div>
+      </div>
+      <div class="mob-parceira-item">
+        <img src="assets/centro-imuvi.png" alt="Centro IMUVI">
+        <div class="mob-parceira-caption">
+          <strong>Centro IMUVI</strong>
+          <small>Santos, SP</small>
+        </div>
+      </div>
+      <div class="mob-parceira-item">
+        <img src="assets/laboratorio-cellula-mater.png" alt="Laboratório Cellula Mater">
+        <div class="mob-parceira-caption">
+          <strong>Laboratório Cellula Mater</strong>
+          <small>Santos, SP</small>
+        </div>
+      </div>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+
+  <!-- ===== REDE CREDENCIADA ===== -->
+  <div class="mob-page" id="mob-credenciada">
+    <header class="mob-hdr"><img src="assets/bluemed-logo.png" alt="Blue Med Saúde"></header>
+    <nav class="mob-inner-nav">
+      <button class="mob-inner-btn" onclick="mobShow('home')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="36" width="60" height="8" rx="4" fill="#666"/><rect x="10" y="50" width="60" height="8" rx="4" fill="#666"/></svg>
+        <span>MENU PRINCIPAL</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('parceira')">
+        <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="28" width="38" height="44" rx="2" stroke="#666" stroke-width="4"/><rect x="48" y="42" width="22" height="30" rx="2" stroke="#666" stroke-width="4"/></svg>
+        <span>REDE PARCEIRA</span>
+      </button>
+      <button class="mob-inner-btn" onclick="mobShow('tabela')">
+        <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="28" stroke="#666" stroke-width="4"/><path d="M40 28v4M40 48v4M40 32c-2.2 0-4 1.8-4 4s1.8 4 4 4 4 1.8 4 4-1.8 4-4 4" stroke="#666" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>TABELA DE PREÇOS</span>
+      </button>
+    </nav>
+    <h2 class="mob-sec-title">Rede Credenciada</h2>
+    <div class="mob-map">
+      <iframe
+        src="https://maps.google.com/maps?q=santos+sp+hospitais+clinicas&output=embed&z=13"
+        title="Rede Credenciada Blue Med Saúde"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <button class="mob-back-btn" onclick="mobShow('home')">&#8249; VOLTAR</button>
+    <footer class="mob-footer">
+      <p class="mob-footer-lbl">INFORMAÇÕES E VENDAS:</p>
+      <a class="mob-footer-wa" href="https://wa.me/5513991039442"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.857L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.374l-.36-.214-3.727.977.993-3.63-.234-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>(13) 99103-9442</a>
+      <p class="mob-footer-copy">© Copyright 2026 • Blue Med Saúde • Todos Direitos Reservados</p>
+    </footer>
+  </div>
+
+</div><!-- /#mobile-app -->
+
+<script>
+  function mobShow(pageId) {
+    document.querySelectorAll('#mobile-app .mob-page').forEach(function(p) {
+      p.classList.remove('mob-active');
+    });
+    var target = document.getElementById('mob-' + pageId);
+    if (target) { target.classList.add('mob-active'); window.scrollTo(0, 0); }
+  }
+
+  function mobEnviarTabela() {
+    var nome = document.getElementById('mob-tab-nome').value.trim();
+    var tel = document.getElementById('mob-tab-tel').value.trim();
+    if (!nome || !tel) { alert('Preencha Nome e Telefone.'); return; }
+    var msg = encodeURIComponent('Olá! Vim pelo site da Blue Med.\n\nNome: ' + nome + '\nTelefone: ' + tel + '\n\nGostaria de visualizar a tabela de preços.');
+    window.open('https://wa.me/5513991039442?text=' + msg, '_blank');
+  }
+
+  function mobEnviarCliente() {
+    var nome = document.getElementById('mob-cli-nome').value.trim();
+    var tel = document.getElementById('mob-cli-tel').value.trim();
+    var plano = document.querySelector('input[name="mob-plano"]:checked');
+    if (!nome || !tel) { alert('Preencha Nome e Telefone.'); return; }
+    var msg = encodeURIComponent('Olá! Vim pelo site da Blue Med e quero ser cliente.\n\nPlano: ' + (plano ? plano.value : '') + '\nNome: ' + nome + '\nTelefone: ' + tel);
+    window.open('https://wa.me/5513991039442?text=' + msg, '_blank');
+  }
+
+  function mobEnviarEmpresarial() {
+    var nome = document.getElementById('mob-emp-nome').value.trim();
+    var tel = document.getElementById('mob-emp-tel').value.trim();
+    var empresa = document.getElementById('mob-emp-empresa').value.trim();
+    if (!nome || !tel) { alert('Preencha Nome e Telefone.'); return; }
+    var msg = encodeURIComponent('Olá! Vim pelo site da Blue Med e gostaria de um Estudo Empresarial.\n\nEmpresa: ' + empresa + '\nNome: ' + nome + '\nTelefone: ' + tel);
+    window.open('https://wa.me/5513991039442?text=' + msg, '_blank');
+  }
 </script>
 
 </body>
