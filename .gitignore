@@ -13,3 +13,4 @@ debug-*.png
 .vscode/
 *.swp
 Thumbs.db
+.vercel
