@@ -1087,9 +1087,16 @@
     .mob-hdr img{height:56px;width:auto;margin:0 auto 2px;display:block}
     .mob-hdr-sub{font-size:11px;font-weight:700;letter-spacing:3.5px;color:#0099D8;text-transform:uppercase;margin-top:2px}
 
-    /* --- Banner --- */
-    .mob-banner{width:100%;line-height:0}
-    .mob-banner img{width:100%;display:block}
+    /* --- Slideshow --- */
+    .mob-slideshow{position:relative;width:100%;overflow:hidden;aspect-ratio:1200/430;background:#d4eaf8}
+    .mob-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease-in-out;z-index:0}
+    .mob-slide.active{opacity:1;z-index:1}
+    .mob-slide img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;animation:none}
+    .mob-slide.active img{animation:kb 7s ease-in-out forwards}
+    @keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+    .mob-slide-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;pointer-events:none}
+    .mob-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .4s,transform .4s}
+    .mob-dot.active{background:#fff;transform:scale(1.25)}
 
     .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;padding:14px 0 18px}
     .mob-tile{background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16px 6px 12px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%;text-decoration:none;transition:opacity .12s}
@@ -2581,8 +2588,21 @@ Pode me enviar uma cotação?`
       <img src="assets/bluemed-logo.png" alt="Blue Med Saúde">
       <div class="mob-hdr-sub">Saúde</div>
     </header>
-    <div class="mob-banner">
-      <img src="assets/banner.gif" alt="Blue Med Saúde — Planos de Saúde">
+    <div class="mob-slideshow" id="mobSlideshow">
+      <div class="mob-slide active">
+        <img src="assets/banner-familia.jpg" alt="Plano Família Blue Med">
+      </div>
+      <div class="mob-slide">
+        <img src="assets/banner-senior.jpg" alt="Plano Sênior Blue Med">
+      </div>
+      <div class="mob-slide">
+        <img src="assets/banner-cnpj.jpg" alt="Plano Empresarial Blue Med">
+      </div>
+      <div class="mob-slide-dots">
+        <span class="mob-dot active"></span>
+        <span class="mob-dot"></span>
+        <span class="mob-dot"></span>
+      </div>
     </div>
     <nav class="mob-grid" role="navigation" aria-label="Menu principal">
       <button class="mob-tile" onclick="mobShow('sobre-nos')" aria-label="Sobre Nós">
@@ -3076,6 +3096,28 @@ Pode me enviar uma cotação?`
 </div><!-- /#mobile-app -->
 
 <script>
+  /* ── Slideshow ── */
+  (function(){
+    var ss = document.getElementById('mobSlideshow');
+    if(!ss) return;
+    var slides = ss.querySelectorAll('.mob-slide');
+    var dots   = ss.querySelectorAll('.mob-dot');
+    var cur = 0;
+    function go(n){
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      /* restart Ken Burns */
+      var img = slides[cur].querySelector('img');
+      img.style.animation = 'none';
+      img.offsetWidth; /* reflow */
+      img.style.animation = '';
+    }
+    setInterval(function(){ go(cur + 1); }, 5500);
+  })();
+
   function mobShow(pageId) {
     if (pageId === 'home') {
       location.href = location.pathname;
