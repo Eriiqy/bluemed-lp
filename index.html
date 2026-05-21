@@ -1088,18 +1088,16 @@
     .mob-banner{width:100%;line-height:0;border-bottom:1px solid #d8e2ec}
     .mob-banner img{width:100%;display:block}
 
-    .mob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#ddd;border-top:2px solid #ddd;border-bottom:2px solid #ddd}
-    .mob-tile{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 14px 22px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%;text-decoration:none;transition:transform .1s,background .1s}
-    .mob-tile:active{background:#f0f4f8;transform:scale(.97)}
-    .mob-tile-icon{width:76px;height:76px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
-    .mob-tile-icon.c-blue{background:#0099D8;box-shadow:0 4px 10px rgba(0,153,216,.4)}
-    .mob-tile-icon.c-dark{background:#152361;box-shadow:0 4px 10px rgba(21,35,97,.4)}
-    .mob-tile-icon.c-green{background:#25D366;box-shadow:0 4px 10px rgba(37,211,102,.4)}
-    .mob-tile-icon.c-gold{background:#C9A24B;box-shadow:0 4px 10px rgba(201,162,75,.4)}
-    .mob-tile-icon.c-white{background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.14);border:2px solid #e8ecf0}
-    .mob-tile-icon svg{width:46px;height:46px;display:block}
-    .mob-tile-icon img{width:58px;height:58px;object-fit:contain;padding:4px}
-    .mob-tile span{font-size:14px;font-weight:800;letter-spacing:.3px;color:#222;text-transform:uppercase;line-height:1.3}
+    .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;padding:14px 0 18px}
+    .mob-tile{background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16px 6px 12px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%;text-decoration:none;transition:opacity .12s}
+    .mob-tile:active{opacity:.55}
+    .mob-tile-icon{width:62px;height:62px;border-radius:16px;background:transparent;display:flex;align-items:center;justify-content:center;margin-bottom:9px;flex-shrink:0}
+    .mob-tile-icon.c-featured{background:#C9A24B;box-shadow:0 4px 16px rgba(201,162,75,.5)}
+    .mob-tile-icon.c-whatsapp{background:#25D366;box-shadow:0 4px 14px rgba(37,211,102,.45)}
+    .mob-tile-icon svg{width:52px;height:52px;display:block}
+    .mob-tile-icon img{width:50px;height:50px;object-fit:contain}
+    .mob-tile span{font-size:11px;font-weight:800;letter-spacing:.3px;color:#152361;text-transform:uppercase;line-height:1.4}
+    .mob-tile span.c-featured-lbl{color:#C9A24B}
 
     .mob-footer{background:#e5eaee;border-top:1px solid #c8d2da;padding:18px 16px;text-align:center}
     .mob-footer-lbl{font-size:11.5px;color:#666;font-weight:600;letter-spacing:.5px;margin-bottom:10px;text-transform:uppercase}
@@ -2561,55 +2559,55 @@ Pode me enviar uma cotação?`
     </div>
     <nav class="mob-grid" role="navigation" aria-label="Menu principal">
       <button class="mob-tile" onclick="mobShow('sobre-nos')" aria-label="Sobre Nós">
-        <div class="mob-tile-icon c-white">
-          <img src="assets/bluemed-logo.png" alt="Sobre Nós">
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="8" y="18" width="40" height="34" rx="2" stroke="#0099D8" stroke-width="3.5"/><path d="M18 18V10a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" stroke="#0099D8" stroke-width="3.5"/><path d="M24 35v-6M21 32h6" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/><rect x="22" y="42" width="12" height="10" rx="1" stroke="#0099D8" stroke-width="3"/></svg>
         </div>
         <span>SOBRE NÓS</span>
       </button>
       <button class="mob-tile" onclick="mobShow('produtos')" aria-label="Produtos">
-        <div class="mob-tile-icon c-blue">
-          <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="12" width="40" height="26" rx="4" stroke="white" stroke-width="3.5"/><path d="M4 20h40" stroke="white" stroke-width="3"/><rect x="8" y="28" width="14" height="4" rx="2" fill="white"/><path d="M36 26v-4M34 24h4" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="5" y="14" width="46" height="30" rx="5" stroke="#0099D8" stroke-width="3.5"/><path d="M5 23h46" stroke="#0099D8" stroke-width="3"/><rect x="10" y="32" width="16" height="5" rx="2.5" fill="#0099D8"/><path d="M41 32v-5M38.5 29.5h5" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
-        <span>PRODUTOS</span>
+        <span>NOSSOS PLANOS</span>
       </button>
       <button class="mob-tile" onclick="mobShow('canais')" aria-label="Canais de Atendimento">
-        <div class="mob-tile-icon c-dark">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M10 24c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="white" stroke-width="3.5" stroke-linecap="round"/><rect x="6" y="22" width="8" height="12" rx="4" fill="white"/><rect x="34" y="22" width="8" height="12" rx="4" fill="white"/><path d="M42 30v4a4 4 0 0 1-4 4H28" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><path d="M12 28c0-8.84 7.16-16 16-16s16 7.16 16 16" stroke="#0099D8" stroke-width="3.5" stroke-linecap="round"/><rect x="8" y="26" width="8" height="14" rx="4" fill="#0099D8"/><rect x="40" y="26" width="8" height="14" rx="4" fill="#0099D8"/><path d="M48 36v4a5 5 0 0 1-5 5H32" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <span>CANAIS DE ATENDIMENTO</span>
       </button>
       <button class="mob-tile" onclick="mobShow('tabela')" aria-label="Tabela de Preços">
-        <div class="mob-tile-icon c-gold">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M12 6h18l10 10v28a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="white" stroke-width="3" fill="white" fill-opacity=".2"/><path d="M30 6v10h10" stroke="white" stroke-width="3" stroke-linejoin="round"/><path d="M24 20v2M24 34v2M24 22c-2 0-4 1.5-4 4s2 4 4 4 4 1.5 4 4-2 4-4 4" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><path d="M14 6h22l14 14v32a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="#0099D8" stroke-width="3.5"/><path d="M36 6v14h14" stroke="#0099D8" stroke-width="3.5" stroke-linejoin="round"/><path d="M28 24v2M28 38v2M28 26c-2.5 0-5 1.8-5 5s2.5 5 5 5 5 1.8 5 5-2.5 5-5 5" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <span>TABELA DE PREÇOS</span>
       </button>
       <button class="mob-tile" onclick="mobShow('cliente')" aria-label="Quero Ser Cliente">
-        <div class="mob-tile-icon c-blue">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M18 26l5-14a4 4 0 0 1 4 4v8h10a3 3 0 0 1 3 3.3l-2 12a3 3 0 0 1-3 2.7H18V26z" fill="white"/><rect x="8" y="26" width="10" height="16" rx="3" fill="white"/></svg>
+        <div class="mob-tile-icon c-featured">
+          <svg viewBox="0 0 56 56" fill="none"><path d="M28 44S10 33.5 10 21.5a10.5 10.5 0 0 1 18-7.35A10.5 10.5 0 0 1 46 21.5C46 33.5 28 44 28 44z" fill="white"/></svg>
         </div>
-        <span>QUERO SER CLIENTE</span>
+        <span class="c-featured-lbl">SEJA CLIENTE</span>
       </button>
       <button class="mob-tile" onclick="mobShow('empresarial')" aria-label="Estudo Empresarial">
-        <div class="mob-tile-icon c-dark">
-          <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="18" width="36" height="26" rx="4" stroke="white" stroke-width="3.5"/><path d="M16 18v-4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" stroke="white" stroke-width="3"/><path d="M6 28h36" stroke="white" stroke-width="3"/><path d="M20 23h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="7" y="20" width="42" height="30" rx="4" stroke="#0099D8" stroke-width="3.5"/><path d="M18 20v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5" stroke="#0099D8" stroke-width="3.5"/><path d="M7 32h42" stroke="#0099D8" stroke-width="3"/><path d="M23 26h10" stroke="#0099D8" stroke-width="2.5" stroke-linecap="round"/></svg>
         </div>
         <span>ESTUDO EMPRESARIAL</span>
       </button>
       <button class="mob-tile" onclick="mobShow('parceira')" aria-label="Rede Parceira">
-        <div class="mob-tile-icon c-blue">
-          <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="18" width="24" height="28" rx="2" stroke="white" stroke-width="3.5"/><rect x="30" y="26" width="14" height="20" rx="2" stroke="white" stroke-width="3"/><path d="M12 26v2M18 26v2M12 33v2M18 33v2" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><rect x="7" y="20" width="28" height="32" rx="2" stroke="#0099D8" stroke-width="3.5"/><rect x="35" y="29" width="16" height="23" rx="2" stroke="#0099D8" stroke-width="3"/><path d="M14 30v3M21 30v3M14 39v3M21 39v3" stroke="#0099D8" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <span>REDE PARCEIRA</span>
       </button>
       <button class="mob-tile" onclick="mobShow('credenciada')" aria-label="Rede Credenciada">
-        <div class="mob-tile-icon c-dark">
-          <svg viewBox="0 0 48 48" fill="none"><path d="M24 5C16.27 5 10 11.27 10 19c0 11 14 28 14 28s14-17 14-28C38 11.27 31.73 5 24 5z" stroke="white" stroke-width="3" fill="white" fill-opacity=".25"/><circle cx="24" cy="19" r="5" fill="white"/></svg>
+        <div class="mob-tile-icon">
+          <svg viewBox="0 0 56 56" fill="none"><path d="M28 6C19.16 6 12 13.16 12 22c0 12.83 16 32 16 32s16-19.17 16-32C44 13.16 36.84 6 28 6z" stroke="#0099D8" stroke-width="3.5"/><circle cx="28" cy="22" r="6" stroke="#0099D8" stroke-width="3.5"/></svg>
         </div>
         <span>REDE CREDENCIADA</span>
       </button>
       <a class="mob-tile" href="https://wa.me/5513991039442" aria-label="Fale no WhatsApp">
-        <div class="mob-tile-icon c-green">
+        <div class="mob-tile-icon c-whatsapp">
           <svg viewBox="0 0 48 48"><path d="M24 4C12.95 4 4 12.95 4 24c0 3.55.97 6.88 2.65 9.75L4 44l10.55-2.6A19.9 19.9 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4zm9.6 27.5c-.4 1.1-2.32 2.13-3.2 2.22-.8.08-1.57.37-5.27-1.1-4.43-1.78-7.26-6.3-7.48-6.59-.22-.3-1.78-2.36-1.78-4.5 0-2.14 1.12-3.19 1.52-3.63.4-.44.87-.55 1.16-.55h.83c.27 0 .62-.1.97.74l1.37 3.33c.11.27.05.58-.1.82l-.51.66c-.17.22-.34.46-.15.9.2.44.88 1.46 1.9 2.36 1.3 1.16 2.4 1.52 2.74 1.69.34.17.54.14.74-.08l.56-.67c.27-.33.54-.27.9-.16l3.15 1.48c.37.17.62.25.71.4.1.15.1.88-.3 1.97z" fill="white"/></svg>
         </div>
         <span>FALE NO WHATSAPP</span>
