@@ -1096,16 +1096,16 @@
     .mob-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .4s,transform .4s}
     .mob-dot.active{background:#fff;transform:scale(1.25)}
 
-    .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:transparent;padding:16px 14px 20px}
-    .mob-tile{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(21,35,97,.07),0 1px 3px rgba(21,35,97,.04);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 8px 16px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
-    .mob-tile:active{transform:scale(.94);box-shadow:0 1px 4px rgba(21,35,97,.05)}
-    .mob-tile-icon{width:52px;height:52px;border-radius:13px;background:#EBF4FB;display:flex;align-items:center;justify-content:center;margin-bottom:10px;flex-shrink:0}
-    .mob-tile-icon.c-featured{background:linear-gradient(135deg,#E8C063 0%,#A37714 100%);box-shadow:0 4px 16px rgba(201,162,75,.5)}
+    .mob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;padding:14px 0 18px}
+    .mob-tile{background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16px 6px 12px;cursor:pointer;border:none;outline:none;text-align:center;-webkit-tap-highlight-color:transparent;width:100%;text-decoration:none;transition:opacity .12s}
+    .mob-tile:active{opacity:.55}
+    .mob-tile-icon{width:62px;height:62px;border-radius:16px;background:transparent;display:flex;align-items:center;justify-content:center;margin-bottom:9px;flex-shrink:0}
+    .mob-tile-icon.c-featured{background:#C9A24B;box-shadow:0 4px 16px rgba(201,162,75,.5)}
     .mob-tile-icon.c-whatsapp{background:#25D366;box-shadow:0 4px 14px rgba(37,211,102,.45)}
-    .mob-tile-icon svg{width:28px;height:28px;display:block}
-    .mob-tile-icon img{width:28px;height:28px;object-fit:contain}
-    .mob-tile span{font-size:10.5px;font-weight:700;letter-spacing:.2px;color:#152361;text-transform:uppercase;line-height:1.35}
-    .mob-tile span.c-featured-lbl{color:#A37714}
+    .mob-tile-icon svg{width:52px;height:52px;display:block}
+    .mob-tile-icon img{width:50px;height:50px;object-fit:contain}
+    .mob-tile span{font-size:11px;font-weight:800;letter-spacing:.3px;color:#152361;text-transform:uppercase;line-height:1.4}
+    .mob-tile span.c-featured-lbl{color:#C9A24B}
 
     .mob-footer{background:#e5eaee;border-top:1px solid #c8d2da;padding:18px 16px;text-align:center}
     .mob-footer-lbl{font-size:11.5px;color:#666;font-weight:600;letter-spacing:.5px;margin-bottom:10px;text-transform:uppercase}
